@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://houstonspringbreak2027.com/sitemap.xml
