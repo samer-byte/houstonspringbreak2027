@@ -146,6 +146,11 @@
   .week-row:first-child{border-top:1px solid var(--line)}
   .week-row b{color:var(--gold); letter-spacing:.3em; font-weight:600; font-size:.95rem}
   .week-row span{letter-spacing:.16em; font-weight:400; font-size:1.02rem}
+  .three-weeks p.about{
+    max-width:680px; margin:0 auto 2.8rem; text-align:center;
+    font-weight:300; line-height:1.75; letter-spacing:.03em; font-size:1rem; opacity:.92;
+  }
+  .three-weeks p.about b{color:var(--amber); font-weight:500}
   .three-weeks p.note{
     text-align:center; margin-top:2rem; color:var(--magenta);
     letter-spacing:.3em; text-indent:.3em; text-transform:uppercase; font-size:.8rem; font-weight:500;
@@ -168,9 +173,10 @@
   .poster-row img:hover{transform:translateY(-6px)}
 
   /* ---------- GALLERY ---------- */
-  .gallery-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:.5rem}
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem}
   .gallery-grid img{width:100%; height:230px; object-fit:cover; display:block; filter:saturate(1.05)}
-  @media (max-width:640px){.gallery-grid img{height:150px}}
+  @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr)} .gallery-grid img{height:150px}}
 
   /* ---------- INFO ---------- */
   .info{max-width:700px; margin:0 auto; display:grid; gap:1.5rem}
@@ -228,6 +234,12 @@
   <div class="wrap">
     <h2>Three Weeks In March</h2>
     <div class="h2-rule"></div>
+    <p class="about">
+      Houston Spring Break 2027 is the official college spring break in Houston, Texas — three weeks of
+      mansion parties, pool parties, yacht parties, day parties and celebrity club events, curated for
+      college students and young professionals from <b>300+ universities nationwide</b>. HBCU spring break,
+      Texas spring break, and the biggest college party season in Houston.
+    </p>
     <div class="week-rows">
       <div class="week-row"><b>Week 1</b><span>March 8th – 14th</span></div>
       <div class="week-row"><b>Week 2</b><span>March 15th – 21st</span></div>
@@ -278,6 +290,10 @@
       <img src="gal-6.jpg" alt="DJ over a lit crowd">
       <img src="gal-7.jpg" alt="Crowd dancing with lights">
       <img src="gal-8.jpg" alt="Hype moment at the DJ booth">
+      <img src="gal-9.jpg" alt="Daytime party crowd">
+      <img src="gal-10.jpg" alt="Green-lit ballroom crowd">
+      <img src="gal-11.jpg" alt="DJ booth laughs">
+      <img src="gal-12.jpg" alt="Friends with a party prop sign">
     </div>
   </div>
 </section>
@@ -290,6 +306,10 @@
       <div class="info-item">
         <h4>Where are the venues?</h4>
         <p>Locations — especially mansion and pool parties — are announced the week of each event to keep things exclusive. RSVP and follow <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> so you get every announcement first.</p>
+      </div>
+      <div class="info-item">
+        <h4>The GroupMe</h4>
+        <p><a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">RSVP free</a> and you'll get the official Houston Spring Break GroupMe link — venue drops, lineup announcements, and day-of details land there first.</p>
       </div>
       <div class="info-item">
         <h4>Sections &amp; Cabanas</h4>
@@ -310,7 +330,7 @@
 <section class="final-cta">
   <div class="wrap">
     <h2>Lock In Your Spring Break</h2>
-    <p class="sub">Free RSVP gets you every venue announcement first</p>
+    <p class="sub">Free RSVP gets you the GroupMe link + every venue announcement first</p>
     <div class="cta-row">
       <a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets</a>
       <a class="btn btn-ghost" href="https://posh.vip/e/houston-spring-break-2027-2">RSVP On Posh</a>
