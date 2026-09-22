@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Houston Spring Break 2027 — Official</title>
-<meta name="description" content="Houston Spring Break 2027 — the official college spring break in Houston, TX. Three weeks in March. Mansion parties, pool parties, yacht parties & celebrity club events. Tickets on sale now.">
+<meta name="description" content="Houston Spring Break 2027: three weeks of pool, mansion, yacht and club parties, Mar 10–28. Party Packs from $80, single parties from $20.">
 <link rel="canonical" href="https://houstonspringbreak2027.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Houston Spring Break 2027 — Official">
@@ -14,6 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#140b26">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
+<link rel="preload" as="image" href="img/hero-band.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
@@ -71,7 +72,7 @@
     text-align:center; padding:clamp(3rem,9svh,6rem) 1.25rem 5rem;
     background:
       linear-gradient(180deg, rgba(20,11,38,.92) 0%, rgba(20,11,38,.55) 22%, rgba(20,11,38,0) 45%, rgba(20,11,38,.25) 78%, rgba(20,11,38,.96) 100%),
-      url('hero-band.jpg') center 62%/cover no-repeat,
+      image-set(url('img/hero-band.webp') type('image/webp'), url('hero-band.jpg') type('image/jpeg')) center 62%/cover no-repeat,
       var(--purple);
   }
   .hero-inner{position:relative; z-index:2; max-width:920px; width:100%}
@@ -204,6 +205,30 @@
     text-transform:uppercase; opacity:.6; font-weight:400; line-height:2.1;
   }
   footer a{color:var(--cream)}
+
+  /* ---- tickets & party packs (web studio 9/22) ---- */
+  .packs{background:linear-gradient(180deg,var(--plum),var(--purple))}
+  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;text-align:left}
+  .pack{border:1px solid var(--line);background:rgba(20,11,38,.72);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.55rem}
+  .pack-hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 20px 50px rgba(240,166,63,.18)}
+  .pk-week{font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .pk-dates{font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase}
+  .pk-amt{font-size:3rem;font-weight:600;line-height:1;color:var(--cream);margin-top:.4rem}
+  .pk-amt span{display:block;font-size:.85rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);margin-top:.4rem}
+  .pk-note{font-size:.95rem;opacity:.85;margin-bottom:.6rem}
+  .pack .btn{align-self:flex-start}
+  .pack details{margin-top:.8rem;border-top:1px solid var(--line);padding-top:.7rem}
+  .pack summary{cursor:pointer;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);min-height:44px;display:flex;align-items:center}
+  .pack ul{list-style:none;margin-top:.4rem}
+  .pack li{display:grid;grid-template-columns:5.2rem 1fr auto;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(242,231,207,.08);font-size:.92rem;align-items:baseline}
+  .pk-day{opacity:.7;letter-spacing:.06em}
+  .pk-name em{font-style:normal;font-size:.75rem;letter-spacing:.12em;color:var(--gold);margin-left:.35rem}
+  .pk-price{color:var(--amber);font-weight:600}
+  .pack-facts{margin-top:1.6rem;font-size:.95rem;opacity:.9;line-height:1.9}
+  .pack-facts p:last-child{font-size:.85rem;opacity:.7}
+  .info-h{font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+  footer{font-size:.8rem}
+  @media (max-width:900px){.pack-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -218,13 +243,14 @@
       <div class="wk"><b>Week 3</b><span>March 22 – 28</span></div>
     </div>
     <div class="cta-row">
-      <a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Tickets On Sale Now</a>
+      <a class="btn btn-gold" href="#tickets">Tickets &amp; Packs from $20</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a>
     </div>
   </div>
   <p class="hero-foot">Mansion Parties<span class="dot">·</span>Club Events<span class="dot">·</span>Pool Parties</p>
 </header>
 
+<main id="main">
 <div class="marquee" aria-hidden="true"><div class="marquee-track">
   MANSION PARTIES · CLUB EVENTS · POOL PARTIES · YACHT PARTIES · TICKETS ON SALE NOW ·&nbsp;
   MANSION PARTIES · CLUB EVENTS · POOL PARTIES · YACHT PARTIES · TICKETS ON SALE NOW ·&nbsp;
@@ -237,7 +263,7 @@
     <p class="about">
       Houston Spring Break 2027 is the official college spring break in Houston, Texas — three weeks of
       mansion parties, pool parties, yacht parties, day parties and celebrity club events, curated for
-      college students and young professionals from <b>300+ universities nationwide</b>. HBCU spring break,
+      college students and young professionals from across Texas and the country. HBCU spring break,
       Texas spring break, and the biggest college party season in Houston.
     </p>
     <div class="week-rows">
@@ -246,6 +272,20 @@
       <div class="week-row"><b>Week 3</b><span>March 22nd – 28th</span></div>
     </div>
     <p class="note">Tickets On Sale Now</p>
+  </div>
+</section>
+
+
+<section class="packs" id="tickets" aria-labelledby="packs-h">
+  <div class="wrap">
+    <h2 id="packs-h">Tickets &amp; Party Packs</h2>
+    <div class="h2-rule"></div>
+    <p class="about">Every week runs Thursday to Sunday: a booze boat, pool parties, day parties and club nights. Grab one party or lock in the whole weekend with a Party Pack.</p>
+    <div class="pack-grid"><article class="pack"><p class="pk-week">Week 1</p><p class="pk-dates">March 8 – 14</p><p class="pk-amt">$80<span>Party Pack</span></p><p class="pk-note">One ticket, the full weekend of parties.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 1 Pack</a><details><summary>See the Week 1 lineup</summary><ul><li><span class="pk-day">Thu 3/11</span><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-day">Thu 3/11</span><span class="pk-name">Pretty Nasty</span><span class="pk-price">$20</span></li><li><span class="pk-day">Fri 3/12</span><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-day">Fri 3/12</span><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$20</span></li><li><span class="pk-day">Fri 3/12</span><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$20</span></li><li><span class="pk-day">Sat 3/13</span><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-day">Sat 3/13</span><span class="pk-name">Freaknik HTX</span><span class="pk-price">$20</span></li><li><span class="pk-day">Sun 3/14</span><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$20</span></li><li><span class="pk-day">Sun 3/14</span><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$20</span></li></ul></details></article><article class="pack pack-hot"><p class="pk-week">Week 2</p><p class="pk-dates">March 15 – 21</p><p class="pk-amt">$150<span>Party Pack</span></p><p class="pk-note">One ticket, the full weekend of parties.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 2 Pack</a><details><summary>See the Week 2 lineup</summary><ul><li><span class="pk-day">Thu 3/18</span><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-day">Thu 3/18</span><span class="pk-name">Pretty Nasty</span><span class="pk-price">$30</span></li><li><span class="pk-day">Fri 3/19</span><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-day">Fri 3/19</span><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$30</span></li><li><span class="pk-day">Fri 3/19</span><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$30</span></li><li><span class="pk-day">Sat 3/20</span><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-day">Sat 3/20</span><span class="pk-name">Freaknik HTX</span><span class="pk-price">$30</span></li><li><span class="pk-day">Sun 3/21</span><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$30</span></li><li><span class="pk-day">Sun 3/21</span><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$30</span></li></ul></details></article><article class="pack"><p class="pk-week">Week 3</p><p class="pk-dates">March 22 – 28</p><p class="pk-amt">$80<span>Party Pack</span></p><p class="pk-note">One ticket, the full weekend of parties.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 3 Pack</a><details><summary>See the Week 3 lineup</summary><ul><li><span class="pk-day">Thu 3/25</span><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-day">Thu 3/25</span><span class="pk-name">Pretty Nasty</span><span class="pk-price">$20</span></li><li><span class="pk-day">Fri 3/26</span><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-day">Fri 3/26</span><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$20</span></li><li><span class="pk-day">Fri 3/26</span><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$20</span></li><li><span class="pk-day">Sat 3/27</span><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-day">Sat 3/27</span><span class="pk-name">Freaknik HTX</span><span class="pk-price">$20</span></li><li><span class="pk-day">Sun 3/28</span><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$20</span></li><li><span class="pk-day">Sun 3/28</span><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$20</span></li></ul></details></article></div>
+    <div class="pack-facts">
+      <p><b>Single parties</b> from $20 · <b>Friday brunch</b> free with RSVP</p>
+      <p>Prices shown before Eventbrite fees. Venues are announced the week of each event.</p>
+    </div>
   </div>
 </section>
 
@@ -269,10 +309,10 @@
     <h2>Spring Break 2027</h2>
     <div class="h2-rule"></div>
     <div class="poster-row">
-      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="poster-jet.jpg" alt="Houston Spring Break 2027 — rooftop pool poster"></a>
-      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="poster-pool.jpg" alt="Houston Spring Break 2027 — pool poster"></a>
-      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="poster-city.jpg" alt="Houston Spring Break 2027 — city poster"></a>
-      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="poster-beach.jpg" alt="Houston Spring Break 2027 — beach poster"></a>
+      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="img/poster-jet.webp" width="640" height="853" loading="lazy" decoding="async" alt="Houston Spring Break 2027 — rooftop pool poster"></a>
+      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="img/poster-pool.webp" width="640" height="853" loading="lazy" decoding="async" alt="Houston Spring Break 2027 — pool poster"></a>
+      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="img/poster-city.webp" width="640" height="853" loading="lazy" decoding="async" alt="Houston Spring Break 2027 — city poster"></a>
+      <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873"><img src="img/poster-beach.webp" width="640" height="960" loading="lazy" decoding="async" alt="Houston Spring Break 2027 — beach poster"></a>
     </div>
   </div>
 </section>
@@ -282,18 +322,18 @@
     <h2>Last Year Was A Movie</h2>
     <div class="h2-rule"></div>
     <div class="gallery-grid">
-      <img src="gal-1.jpg" alt="Night mansion pool party aerial view">
-      <img src="gal-2.jpg" alt="Pool party with stage lighting">
-      <img src="gal-3.jpg" alt="Packed night pool party">
-      <img src="gal-4.jpg" alt="Mansion pool party crowd">
-      <img src="gal-5.jpg" alt="Mansion backyard crowd at dusk">
-      <img src="gal-6.jpg" alt="DJ over a lit crowd">
-      <img src="gal-7.jpg" alt="Crowd dancing with lights">
-      <img src="gal-8.jpg" alt="Hype moment at the DJ booth">
-      <img src="gal-9.jpg" alt="Daytime party crowd">
-      <img src="gal-10.jpg" alt="Green-lit ballroom crowd">
-      <img src="gal-11.jpg" alt="DJ booth laughs">
-      <img src="gal-12.jpg" alt="Friends with a party prop sign">
+      <img src="img/gal-1.webp" width="600" height="750" loading="lazy" decoding="async" alt="Night mansion pool party aerial view">
+      <img src="img/gal-2.webp" width="600" height="750" loading="lazy" decoding="async" alt="Pool party with stage lighting">
+      <img src="img/gal-3.webp" width="600" height="750" loading="lazy" decoding="async" alt="Packed night pool party">
+      <img src="img/gal-4.webp" width="600" height="750" loading="lazy" decoding="async" alt="Mansion pool party crowd">
+      <img src="img/gal-5.webp" width="600" height="750" loading="lazy" decoding="async" alt="Mansion backyard crowd at dusk">
+      <img src="img/gal-6.webp" width="600" height="750" loading="lazy" decoding="async" alt="DJ over a lit crowd">
+      <img src="img/gal-7.webp" width="600" height="750" loading="lazy" decoding="async" alt="Crowd dancing with lights">
+      <img src="img/gal-8.webp" width="600" height="750" loading="lazy" decoding="async" alt="Hype moment at the DJ booth">
+      <img src="img/gal-9.webp" width="600" height="400" loading="lazy" decoding="async" alt="Daytime party crowd">
+      <img src="img/gal-10.webp" width="600" height="900" loading="lazy" decoding="async" alt="Green-lit ballroom crowd">
+      <img src="img/gal-11.webp" width="600" height="750" loading="lazy" decoding="async" alt="DJ booth laughs">
+      <img src="img/gal-12.webp" width="600" height="750" loading="lazy" decoding="async" alt="Friends with a party prop sign">
     </div>
   </div>
 </section>
@@ -304,23 +344,23 @@
     <div class="h2-rule"></div>
     <div class="info">
       <div class="info-item">
-        <h4>Where are the venues?</h4>
+        <h3 class="info-h">Where are the venues?</h3>
         <p>Locations — especially mansion and pool parties — are announced the week of each event to keep things exclusive. RSVP and follow <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> so you get every announcement first.</p>
       </div>
       <div class="info-item">
-        <h4>The GroupMe</h4>
-        <p><a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">RSVP free</a> and you'll get the official Houston Spring Break GroupMe link — venue drops, lineup announcements, and day-of details land there first.</p>
+        <h3 class="info-h">The GroupMe</h3>
+        <p><a href="https://posh.vip/e/houston-spring-break-2027-2">RSVP free on Posh</a> and you'll get the official Houston Spring Break GroupMe link — venue drops, lineup announcements, and day-of details land there first.</p>
       </div>
       <div class="info-item">
-        <h4>Sections &amp; Cabanas</h4>
+        <h3 class="info-h">Sections &amp; Cabanas</h3>
         <p>For VIP sections, cabanas, or group accommodations, text <a href="sms:+13019807994">301-980-7994</a>.</p>
       </div>
       <div class="info-item">
-        <h4>Party Packs</h4>
-        <p>The Week 1 and Week 2 Party Packs cover a full weekend of events at one price — the move if you're coming with your crew.</p>
+        <h3 class="info-h">Party Packs</h3>
+        <p>Every week has a Party Pack that covers that weekend's parties at one price: <b>$80</b> for Week 1 and Week 3, <b>$150</b> for Week 2 (the biggest week). <a href="#tickets">See each lineup</a>.</p>
       </div>
       <div class="info-item">
-        <h4>Media</h4>
+        <h3 class="info-h">Media</h3>
         <p>By attending any Houston Spring Break 2027 event you consent to being filmed or photographed for promotional use.</p>
       </div>
     </div>
@@ -333,10 +373,12 @@
     <p class="sub">Free RSVP gets you the GroupMe link + every venue announcement first</p>
     <div class="cta-row">
       <a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets</a>
-      <a class="btn btn-ghost" href="https://posh.vip/e/houston-spring-break-2027-2">RSVP On Posh</a>
+      <a class="btn btn-ghost" href="https://posh.vip/e/houston-spring-break-2027-2">Free RSVP · GroupMe access</a>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   Presented by <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> · Hosted by <a href="https://www.instagram.com/ojlajuice">@ojlajuice</a><br>
