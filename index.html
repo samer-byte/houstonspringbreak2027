@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Houston Spring Break 2027 | Official Parties, Party Packs &amp; School List</title>
 <meta name="description" content="Houston Spring Break 2027 is March 10–28: mansion, pool, yacht and day parties for college students from 300+ schools. Party Packs from $80, singles from $20.">
 <link rel="canonical" href="https://houstonspringbreak2027.com/">
@@ -25,10 +25,10 @@
 <meta name="twitter:image:alt" content="Official Houston Spring Break 2027 School List flyer">
 <meta name="theme-color" content="#140b26">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
-<link rel="preload" as="image" href="img/hero-band.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<script>document.documentElement.className="js"</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -341,306 +341,428 @@
 }
 </script>
 <style>
-  :root{
-    --plum:#140b26; --purple:#241243; --violet:#4a3b8c;
-    --magenta:#c04a77; --coral:#e8735a;
-    --gold:#f0a63f; --amber:#f7c265; --cream:#f2e7cf;
-    --line:rgba(242,231,207,.18);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Oswald','Avenir Next Condensed','Arial Narrow',sans-serif;
-    background:var(--plum); color:var(--cream);
-    overflow-x:hidden; letter-spacing:.02em;
-  }
+:root{
+  --sun:#FFD27A; --sun2:#FF9E5E; --rose:#F2677B; --plum:#8E3B8F; --night:#241243; --ink:#140B26;
+  --aqua:#0FA3B1; --aqua2:#067A8A; --sand:#F6E3C0; --cream:#FFF6E8; --lime:#BDE36B;
+  --display:"Anton",Impact,Haettenschweiler,sans-serif;
+  --body:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  --pad:clamp(18px,4vw,56px); --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--sun);color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--sun);color:var(--ink);padding:12px 18px;border-radius:10px;z-index:120;font-weight:700}
+.skip:focus{left:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative; min-height:100svh;
-    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-    text-align:center; padding:clamp(3rem,9svh,6rem) 1.25rem 5rem;
-    background:
-      linear-gradient(180deg, rgba(20,11,38,.92) 0%, rgba(20,11,38,.55) 22%, rgba(20,11,38,0) 45%, rgba(20,11,38,.25) 78%, rgba(20,11,38,.96) 100%),
-      image-set(url('img/hero-band.webp') type('image/webp'), url('hero-band.jpg') type('image/jpeg')) center 62%/cover no-repeat,
-      var(--purple);
-  }
-  .hero-inner{position:relative; z-index:2; max-width:920px; width:100%}
-  .kicker{
-    letter-spacing:.5em; font-size:.72rem; font-weight:500; color:var(--amber);
-    text-transform:uppercase; margin-bottom:1.4rem;
-  }
-  h1{
-    line-height:.98; text-transform:uppercase; font-weight:600;
-    font-size:clamp(4rem,15.5vw,10rem); color:var(--cream);
-    letter-spacing:.02em;
-    text-shadow:0 6px 40px rgba(20,11,38,.75);
-  }
-  h1 .sub{
-    display:block; color:var(--gold); font-weight:500;
-    letter-spacing:clamp(.3em,1.8vw,.52em); text-indent:clamp(.3em,1.8vw,.52em);
-    font-size:clamp(1.15rem,4.2vw,2.3rem); margin-top:1rem;
-  }
-  .weeks-line{
-    display:flex; justify-content:center; gap:clamp(.7rem,3vw,2rem);
-    margin:2.2rem auto 0; flex-wrap:wrap; max-width:760px;
-  }
-  .wk{
-    padding:.35rem 1rem; border-left:2px solid var(--magenta);
-    text-align:left; text-transform:uppercase;
-  }
-  .wk b{display:block; color:var(--gold); letter-spacing:.28em; font-size:.78rem; font-weight:600}
-  .wk span{color:var(--cream); font-size:.95rem; letter-spacing:.12em; font-weight:400}
-  .cta-row{display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; margin-top:2.6rem}
-  .btn{
-    display:inline-block; text-decoration:none; text-transform:uppercase;
-    letter-spacing:.22em; text-indent:.22em; font-weight:600;
-    padding:1.05rem 2.4rem; font-size:.95rem;
-    transition:transform .15s, box-shadow .15s, background .15s;
-  }
-  .btn-gold{background:var(--gold); color:var(--plum); box-shadow:0 12px 34px rgba(240,166,63,.35)}
-  .btn-gold:hover{transform:translateY(-2px); background:var(--amber)}
-  .btn-ghost{border:1px solid var(--cream); color:var(--cream); background:rgba(20,11,38,.35); backdrop-filter:blur(4px)}
-  .btn-ghost:hover{background:rgba(242,231,207,.14)}
-  .hero-foot{
-    position:absolute; left:0; right:0; bottom:1.6rem; z-index:2;
-    text-transform:uppercase; letter-spacing:.34em; text-indent:.34em;
-    font-size:.72rem; color:var(--amber); font-weight:500;
-  }
-  .hero-foot .dot{color:var(--magenta); margin:0 .35rem}
+/* ---------- the sunset ---------- */
+#sky{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,var(--c1,#8FD3F4) 0%,var(--c2,#FFD27A) 42%,var(--c3,#FFB37A) 72%,var(--c4,#FF9E5E) 100%)}
+#stars{position:fixed;inset:0;z-index:1;opacity:0;pointer-events:none}
+#sun{position:fixed;left:50%;top:46vh;width:min(46vw,420px);aspect-ratio:1;border-radius:50%;z-index:2;transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(circle,#FFF3C4 0%,var(--sun) 38%,var(--sun2) 62%,rgba(242,103,123,0) 72%)}
+#glow{position:fixed;left:50%;top:0;width:140vw;height:100vh;transform:translateX(-50%);z-index:1;pointer-events:none;
+  background:radial-gradient(60% 40% at 50% var(--sunpct,58%),rgba(255,180,110,.55),transparent 70%)}
+.layer{position:fixed;left:0;right:0;pointer-events:none;will-change:transform}
+#skyline{bottom:38vh;height:22vh;z-index:3;opacity:.5}
+#pier{bottom:30vh;height:20vh;z-index:4;opacity:.75}
+#water{bottom:0;height:34vh;z-index:5}
+#palms{bottom:0;height:88vh;z-index:7}
+.layer svg,.layer canvas{width:100%;height:100%;display:block}
+#grain{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#plane{position:fixed;top:15vh;left:0;z-index:9;width:min(62vw,560px);animation:fly 24s linear infinite;will-change:transform}
+@keyframes fly{0%{transform:translateX(-72vw)}100%{transform:translateX(132vw)}}
+#plane text{font-family:var(--body);font-weight:700;font-size:13px;fill:var(--ink);letter-spacing:.06em}
 
-  /* ---------- MARQUEE ---------- */
-  .marquee{
-    background:var(--gold); color:var(--plum); overflow:hidden; white-space:nowrap;
-    padding:.6rem 0; font-weight:600; letter-spacing:.3em; text-transform:uppercase; font-size:.8rem;
-  }
-  .marquee-track{display:inline-block; animation:slide 30s linear infinite}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ---------- top bar ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px var(--pad);background:rgba(20,11,38,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,246,232,.14);transform:translateY(-110%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.bar.show{transform:none}
+.bar .mark{font-family:var(--display);letter-spacing:.06em;font-size:19px;text-transform:uppercase}
+.bar .mark span{color:var(--sun)}
+.bar-cta{display:flex;gap:8px}
+.bar .btn{min-height:44px;font-size:14px;padding:0 16px}
+@media (max-width:560px){.bar .mark{font-size:15px}.bar .btn{padding:0 12px;font-size:13px}}
 
-  section{padding:5rem 1.25rem}
-  .wrap{max-width:1060px; margin:0 auto}
-  h2{
-    text-transform:uppercase; letter-spacing:.3em; text-indent:.3em; font-weight:500;
-    font-size:clamp(1.3rem,4.4vw,2rem); color:var(--gold);
-    margin-bottom:.8rem; text-align:center;
-  }
-  .h2-rule{width:56px; height:2px; background:var(--magenta); margin:0 auto 2.6rem}
+/* ---------- content shell ---------- */
+main,footer,.hero,.marquee{position:relative;z-index:10}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{padding:clamp(64px,9vw,110px) 0}
+h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,5.6vw,74px);line-height:.92;letter-spacing:.01em}
+h3{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-weight:400}
+.eyebrow{font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(12px,1.1vw,13px);color:var(--ink);
+  background:var(--sun);display:inline-block;padding:6px 12px;border-radius:999px}
+.lede{font-size:clamp(15px,1.5vw,18px);max-width:70ch;margin-top:14px;opacity:.95}
+.panel{background:linear-gradient(180deg,rgba(20,11,38,.72),rgba(20,11,38,.88));border:1px solid rgba(255,246,232,.16);
+  border-radius:26px;padding:clamp(22px,3.4vw,44px);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
 
-  /* ---------- THREE WEEKS ---------- */
-  .three-weeks{background:linear-gradient(180deg,var(--plum),var(--purple))}
-  .week-rows{max-width:560px; margin:0 auto}
-  .week-row{
-    display:flex; align-items:baseline; justify-content:space-between;
-    padding:1.15rem .35rem; border-bottom:1px solid var(--line);
-    text-transform:uppercase;
-  }
-  .week-row:first-child{border-top:1px solid var(--line)}
-  .week-row b{color:var(--gold); letter-spacing:.3em; font-weight:600; font-size:.95rem}
-  .week-row span{letter-spacing:.16em; font-weight:400; font-size:1.02rem}
-  .three-weeks p.about{
-    max-width:680px; margin:0 auto 2.8rem; text-align:center;
-    font-weight:300; line-height:1.75; letter-spacing:.03em; font-size:1rem; opacity:.92;
-  }
-  .three-weeks p.about b{color:var(--amber); font-weight:500}
-  .three-weeks p.note{
-    text-align:center; margin-top:2rem; color:var(--magenta);
-    letter-spacing:.3em; text-indent:.3em; text-transform:uppercase; font-size:.8rem; font-weight:500;
-  }
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;
+  font-weight:700;font-size:16px;border:0;cursor:pointer;font-family:inherit;position:relative;overflow:hidden;
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 44px -12px rgba(255,210,122,.95)}
+.btn-sun:hover{background:#FFE1A3;box-shadow:0 16px 54px -10px rgba(255,210,122,1)}
+.btn-aqua{background:var(--aqua);color:#04252A;box-shadow:0 12px 44px -12px rgba(15,163,177,.95)}
+.btn-aqua:hover{background:#2FC4D1}
+.btn-ghost{border:2px solid rgba(255,246,232,.55);color:var(--cream);background:rgba(20,11,38,.25)}
+.btn-ghost:hover{border-color:var(--sun);background:rgba(255,210,122,.14)}
+.btn-lg{min-height:64px;font-size:18px;padding:0 34px}
 
-  /* ---------- EXPERIENCE ---------- */
-  .exp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
-  .exp{background:var(--plum); padding:2rem 1rem; text-align:center}
-  .exp .ico{font-size:1.9rem; display:block; margin-bottom:.7rem}
-  .exp span{letter-spacing:.24em; text-indent:.24em; text-transform:uppercase; font-size:.72rem; font-weight:500; color:var(--cream)}
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:13vh 0 20vh}
+.kicker{font-weight:700;letter-spacing:.3em;text-transform:uppercase;font-size:clamp(12px,1.2vw,13px);text-shadow:0 2px 14px rgba(20,11,38,.55)}
+h1{font-family:var(--display);text-transform:uppercase;line-height:.82;margin:.16em 0 .1em;
+  font-size:clamp(64px,15vw,210px);text-shadow:0 8px 40px rgba(20,11,38,.45)}
+h1 .sb{display:block;font-size:.3em;letter-spacing:.13em;color:var(--sun);text-shadow:0 4px 20px rgba(20,11,38,.65)}
+.hero-meta{font-size:clamp(14px,1.6vw,19px);font-weight:500;margin-top:.5em;text-shadow:0 2px 12px rgba(20,11,38,.6)}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.second{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;font-weight:500;font-size:14px;
+  border:1px solid rgba(255,246,232,.38);background:rgba(20,11,38,.3);backdrop-filter:blur(6px);transition:background .25s,border-color .25s,transform .2s}
+.chip:hover{transform:translateY(-2px);border-color:var(--sun);background:rgba(255,210,122,.16)}
+.chip b{font-weight:700}
+.weeks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.week{flex:0 1 190px;border:1px solid rgba(255,246,232,.34);border-radius:16px;padding:12px 16px;position:relative;overflow:hidden;
+  background:rgba(20,11,38,.22);backdrop-filter:blur(6px);transition:transform .22s,border-color .22s}
+.week::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:linear-gradient(160deg,rgba(255,210,122,.3),rgba(242,103,123,.18))}
+.week:hover{transform:translateY(-3px);border-color:var(--sun)}
+.week:hover::before{opacity:1}
+.week b{display:block;font-family:var(--display);font-size:22px;letter-spacing:.05em;text-transform:uppercase}
+.week span{font-size:13px;opacity:.95}
+.week.big{border-color:var(--sun);background:rgba(255,210,122,.16)}
+.week.big i{font-style:normal;display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);font-weight:700}
 
-  /* ---------- POSTER WALL ---------- */
-  .posters{background:var(--purple)}
-  .poster-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.4rem}
-  .poster-row img{
-    width:100%; display:block; border:1px solid rgba(242,231,207,.25);
-    box-shadow:0 18px 50px rgba(0,0,0,.5);
-    transition:transform .2s;
-  }
-  .poster-row img:hover{transform:translateY(-6px)}
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid rgba(255,246,232,.2);background:rgba(20,11,38,.5);backdrop-filter:blur(6px);overflow:hidden;padding:14px 0;position:relative;z-index:10}
+.mq-track{display:flex;gap:40px;width:max-content;animation:mq 34s linear infinite;font-family:var(--display);letter-spacing:.14em;text-transform:uppercase;font-size:clamp(14px,1.8vw,19px)}
+.mq-track span{white-space:nowrap;display:flex;align-items:center;gap:40px}
+.mq-track span::after{content:"●";color:var(--sun);font-size:9px}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-  /* ---------- GALLERY ---------- */
-  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem}
-  .gallery-grid img{width:100%; height:230px; object-fit:cover; display:block; filter:saturate(1.05)}
-  @media (max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr)} .gallery-grid img{height:150px}}
+/* ---------- colored cards ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.card{position:relative;border-radius:22px;padding:26px 22px;overflow:hidden;isolation:isolate;
+  border:1px solid rgba(255,246,232,.2);background:linear-gradient(180deg,rgba(20,11,38,.55),rgba(20,11,38,.8));
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s,box-shadow .28s}
+.card::before{content:"";position:absolute;inset:0;z-index:-2;opacity:.28;transition:opacity .35s;background:var(--tint,linear-gradient(160deg,var(--sun),var(--rose)))}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,246,232,.22),transparent 60%)}
+.card:hover,.card:focus-within{transform:translateY(-6px);border-color:var(--sun);box-shadow:0 26px 60px -24px rgba(20,11,38,.9)}
+.card:hover::before{opacity:.62}
+.card:hover::after{opacity:1}
+.c-sun{--tint:linear-gradient(160deg,#FFD27A,#FF9E5E)}
+.c-rose{--tint:linear-gradient(160deg,#F2677B,#8E3B8F)}
+.c-aqua{--tint:linear-gradient(160deg,#0FA3B1,#067A8A)}
+.c-lime{--tint:linear-gradient(160deg,#BDE36B,#0FA3B1)}
+.c-plum{--tint:linear-gradient(160deg,#8E3B8F,#241243)}
 
-  /* ---------- INFO ---------- */
-  .info{max-width:700px; margin:0 auto; display:grid; gap:1.5rem}
-  .info-item h4{
-    text-transform:uppercase; letter-spacing:.28em; font-size:.8rem;
-    color:var(--gold); margin-bottom:.45rem; font-weight:600;
-  }
-  .info-item p{opacity:.92; line-height:1.65; font-size:.98rem; font-weight:300; letter-spacing:.03em}
-  .info a{color:var(--amber)}
+/* packs */
+.pack .pk-week{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12px}
+.pack .pk-dates{opacity:.9;font-size:14px;margin-top:2px}
+.pack .pk-amt{font-family:var(--display);font-size:clamp(52px,7vw,86px);line-height:1;margin:14px 0 2px}
+.pack .pk-amt span{display:block;font-family:var(--body);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.9}
+.pack .pk-note{font-size:14.5px;opacity:.95;margin:10px 0 18px}
+.pack .btn{width:100%}
+.pk-link{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);text-decoration:underline}
+.pack.hot{border-color:var(--sun)}
+.tag{position:absolute;top:14px;right:14px;background:var(--sun);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.facts{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14.5px;opacity:.95}
+.facts b{color:var(--sun)}
 
-  /* ---------- FINAL CTA ---------- */
-  .final-cta{
-    text-align:center; position:relative;
-    background:
-      linear-gradient(180deg, rgba(20,11,38,.94) 0%, rgba(20,11,38,.72) 55%, rgba(20,11,38,.94) 100%),
-      url('band-2.jpg') center/cover no-repeat, var(--purple);
-    padding:6.5rem 1.25rem;
-  }
-  .final-cta p.sub{
-    opacity:.85; margin:.4rem 0 2.4rem; line-height:1.6; letter-spacing:.2em; text-indent:.2em;
-    text-transform:uppercase; font-size:.82rem; font-weight:300;
-  }
-  footer{
-    text-align:center; padding:2.6rem 1rem 3.4rem; font-size:.72rem; letter-spacing:.28em;
-    text-transform:uppercase; opacity:.6; font-weight:400; line-height:2.1;
-  }
-  footer a{color:var(--cream)}
+/* lineup */
+.lineup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;align-items:start}
+.lw h3{font-size:30px}
+.lw h3 span{display:block;font-family:var(--body);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.9;margin-top:4px}
+.lw-note{font-size:14px;opacity:.9;margin:10px 0 16px}
+.day{border-top:1px solid rgba(255,246,232,.22);padding:12px 0}
+.day h4{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun);margin-bottom:8px}
+.day ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.day li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-size:15px}
+.day em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.1em;background:rgba(255,246,232,.18);padding:2px 6px;border-radius:6px;margin-left:6px}
+.day .price{font-family:var(--display);font-size:18px;letter-spacing:.04em}
+.lw .btn{width:100%;margin-top:18px}
 
-  /* ---- tickets & party packs (web studio 9/22) ---- */
-  .packs{background:linear-gradient(180deg,var(--plum),var(--purple))}
-  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;text-align:left}
-  .pack{border:1px solid var(--line);background:rgba(20,11,38,.72);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.55rem}
-  .pack-hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 20px 50px rgba(240,166,63,.18)}
-  .pk-week{font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .pk-dates{font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase}
-  .pk-amt{font-size:3rem;font-weight:600;line-height:1;color:var(--cream);margin-top:.4rem}
-  .pk-amt span{display:block;font-size:.85rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);margin-top:.4rem}
-  .pk-note{font-size:.95rem;opacity:.85;margin-bottom:.6rem}
-  .pack .btn{align-self:flex-start}
-  .pack details{margin-top:.8rem;border-top:1px solid var(--line);padding-top:.7rem}
-  .pack summary{cursor:pointer;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);min-height:44px;display:flex;align-items:center}
-  .pack ul{list-style:none;margin-top:.4rem}
-  .pack li{display:grid;grid-template-columns:5.2rem 1fr auto;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(242,231,207,.08);font-size:.92rem;align-items:baseline}
-  .pk-day{opacity:.7;letter-spacing:.06em}
-  .pk-name em{font-style:normal;font-size:.75rem;letter-spacing:.12em;color:var(--gold);margin-left:.35rem}
-  .pk-price{color:var(--amber);font-weight:600}
-  .pack-facts{margin-top:1.6rem;font-size:.95rem;opacity:.9;line-height:1.9}
-  .pack-facts p:last-child{font-size:.85rem;opacity:.7}
-  .info-h{font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
-  footer{font-size:.8rem}
-  @media (max-width:900px){.pack-grid{grid-template-columns:1fr}}
+/* steps */
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.steps li{counter-increment:s;border-top:3px solid var(--sun);padding-top:14px}
+.steps li::before{content:"0" counter(s);display:block;font-family:var(--display);font-size:26px;color:var(--sun);line-height:1;margin-bottom:6px}
+.steps b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:20px;font-weight:400;margin-bottom:4px}
+.steps span{font-size:14.5px;opacity:.94}
+.steps a{color:var(--sun);text-decoration:underline}
 
-  /* ---- SEO content pass (web studio 9/22 pm) ---- */
-  a.wk,a.week-row{text-decoration:none;color:inherit}
-  a.wk:hover b,a.week-row:hover b{color:var(--amber)}
-  .week-row i{font-style:normal;font-size:.72rem;letter-spacing:.2em;color:var(--plum);background:var(--gold);padding:.15rem .45rem;margin-left:.5rem;vertical-align:middle}
-  .hero-lead{margin:1.5rem auto 0;max-width:620px;font-weight:400;font-size:clamp(.95rem,2.6vw,1.1rem);letter-spacing:.08em;line-height:1.6;text-shadow:0 2px 18px rgba(20,11,38,.9)}
-  .hero-links{margin-top:1.4rem;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase}
-  .hero-links a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(247,194,101,.4);display:inline-block;padding:.55rem 0 .15rem}
-  .hero-links .dot{color:var(--magenta);margin:0 .7rem}
-  section .about{max-width:680px;margin:0 auto 2.4rem;text-align:center;font-weight:300;line-height:1.75;letter-spacing:.03em;font-size:1rem;opacity:.92}
-  section .about b{color:var(--amber);font-weight:500}
-  .about a,.sl-ask a,.sl-text a,.steps a,.faq a,.pack-facts a{color:var(--amber)}
+/* experience tiles */
+.exp-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:30px}
+.exp{border-radius:18px;padding:20px 12px;text-align:center;position:relative;overflow:hidden;isolation:isolate;
+  border:1px solid rgba(255,246,232,.2);background:rgba(20,11,38,.5);transition:transform .25s,border-color .25s}
+.exp::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;transition:opacity .3s;background:var(--tint)}
+.exp:hover{transform:translateY(-4px);border-color:var(--sun)}
+.exp:hover::before{opacity:.7}
+.exp .ico{font-size:26px;display:block;margin-bottom:8px}
+.exp span:last-child{font-family:var(--display);text-transform:uppercase;font-size:14px;letter-spacing:.05em}
 
-  .schools{background:var(--purple)}
-  .sl-master{margin:0}
-  .sl-master img,.sl-weeks img{width:100%;height:auto;display:block;border:1px solid rgba(242,231,207,.25);box-shadow:0 18px 50px rgba(0,0,0,.45)}
-  figcaption{text-align:center;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-top:.7rem}
-  .sl-weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.8rem}
-  .sl-weeks figure{margin:0}
-  .sl-ask{text-align:center;margin:2.2rem auto 0;font-size:1.15rem;letter-spacing:.06em}
-  .sl-text{max-width:760px;margin:2.4rem auto 0;border-top:1px solid var(--line);padding-top:1.8rem}
-  .sl-text p{font-weight:300;line-height:1.7;opacity:.9;margin-bottom:.9rem;font-size:.98rem}
-  .sl-text p b{color:var(--gold);font-weight:500}
-  .sl-text h3{margin-top:1.2rem}
-  @media (max-width:900px){.sl-weeks{grid-template-columns:1fr}}
+/* school list */
+.sl-master{margin-top:28px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,246,232,.2);background:#140B26}
+.sl-master img{width:100%;height:auto}
+.sl-master figcaption,.sl-weeks figcaption{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:10px 4px;opacity:.9}
+.sl-weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.sl-weeks figure{border-radius:18px;overflow:hidden;background:#140B26;border:1px solid rgba(255,246,232,.18);transition:transform .25s,border-color .25s}
+.sl-weeks figure:hover{transform:translateY(-4px);border-color:var(--sun)}
+.sl-ask{margin-top:18px;font-size:15px}
+.sl-ask a,.sl-text a{color:var(--sun);text-decoration:underline}
+.sl-text{margin-top:26px;font-size:14.5px;opacity:.95;display:grid;gap:10px}
+.sl-text h3{font-size:18px;color:var(--sun);margin-top:10px}
 
-  .lineup{background:linear-gradient(180deg,var(--purple),var(--plum))}
-  .lw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-  .lw{border:1px solid var(--line);background:rgba(20,11,38,.6);padding:1.5rem 1.3rem;display:flex;flex-direction:column}
-  .lw-hot{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-  .lw-h{font-size:1.05rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
-  .lw-h span{display:block;color:var(--cream);font-weight:400;letter-spacing:.1em;font-size:1.2rem;margin-top:.2rem}
-  .lw-note{font-size:.92rem;opacity:.8;line-height:1.55;margin:.6rem 0 .4rem;font-weight:300}
-  .lw-day{margin-top:.9rem}
-  .lw-day h4{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);font-weight:500;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
-  .lw-day ul{list-style:none}
-  .lw-day li{display:flex;justify-content:space-between;gap:.8rem;padding:.4rem 0;border-bottom:1px solid rgba(242,231,207,.07);font-size:.95rem}
-  .lw-btn{margin-top:1.4rem;align-self:stretch;text-align:center;padding:1rem 1rem;font-size:.85rem;letter-spacing:.16em;text-indent:.16em}
-  @media (max-width:900px){.lw-grid{grid-template-columns:1fr}}
+/* gallery */
+.gallery{columns:4;column-gap:12px;margin-top:30px}
+.gallery img{width:100%;border-radius:14px;background:#140B26;margin-bottom:12px;border:1px solid rgba(255,246,232,.14);transition:transform .3s,filter .3s}
+.gallery img:hover{transform:scale(1.02);filter:saturate(1.15)}
 
-  .pack .btn{padding:1rem 1.3rem;letter-spacing:.16em;text-indent:.16em;font-size:.88rem}
-  .pk-link{color:var(--amber);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-top:.4rem;min-height:44px;display:flex;align-items:center}
+/* faq */
+.faq-list{max-width:820px;margin-top:28px}
+.faq-q{border-bottom:1px solid rgba(255,246,232,.2)}
+.faq-q:first-child{border-top:1px solid rgba(255,246,232,.2)}
+.faq-q summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 4px;min-height:52px}
+.faq-q summary::-webkit-details-marker{display:none}
+.faq-q summary::after{content:"+";color:var(--sun);font-family:var(--display);font-size:26px;line-height:1}
+.faq-q[open] summary::after{content:"–"}
+.faq-q h3{font-size:17px;letter-spacing:.02em;font-weight:400}
+.faq-q p{padding:0 4px 18px;font-size:15px;opacity:.95}
+.faq-q a{color:var(--sun);text-decoration:underline}
+.faq-media{margin-top:20px;font-size:13px;opacity:.7;max-width:820px}
 
-  .how{background:var(--plum)}
-  .steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-  .steps li{counter-increment:s;border-top:2px solid var(--magenta);padding-top:1rem}
-  .steps li::before{content:"0" counter(s);display:block;color:var(--gold);font-weight:600;letter-spacing:.2em;font-size:.9rem;margin-bottom:.5rem}
-  .steps b{display:block;text-transform:uppercase;letter-spacing:.16em;font-weight:500;margin-bottom:.4rem}
-  .steps span{font-weight:300;line-height:1.6;opacity:.9;font-size:.95rem}
-  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-  @media (max-width:560px){.steps{grid-template-columns:1fr}}
+/* final */
+.final{text-align:center}
+.final h2{margin-bottom:10px}
+.final .hero-cta{margin-top:22px}
+footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);padding:44px 0 60px;font-size:14.5px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.foot-grid h4{font-family:var(--display);text-transform:uppercase;font-size:15px;letter-spacing:.1em;color:var(--sun);margin-bottom:10px;font-weight:400}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.foot-grid a{display:inline-flex;align-items:center;min-height:40px}
+.foot-grid a:hover{color:var(--sun)}
+.foot-base{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,246,232,.14);opacity:.8;font-size:13.5px}
 
-  .faq{background:linear-gradient(180deg,var(--plum),var(--purple))}
-  .faq-list{max-width:760px;margin:0 auto}
-  .faq-q{border-bottom:1px solid var(--line)}
-  .faq-q:first-child{border-top:1px solid var(--line)}
-  .faq-q summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem .2rem;min-height:44px}
-  .faq-q summary::-webkit-details-marker{display:none}
-  .faq-q summary::after{content:"+";color:var(--gold);font-size:1.4rem;line-height:1}
-  .faq-q[open] summary::after{content:"–"}
-  .faq-q h3{font-size:1.02rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--cream)}
-  .faq-q p{padding:0 .2rem 1.2rem;font-weight:300;line-height:1.7;opacity:.92}
-  .faq-media{max-width:760px;margin:1.6rem auto 0;font-size:.85rem;opacity:.6;text-align:center}
-  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.btn,.poster-row img{transition:none}html{scroll-behavior:auto}}
+@media (max-width:980px){
+  .grid-3,.lineup-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .exp-grid{grid-template-columns:repeat(3,1fr)}
+  .gallery{columns:3}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .sl-weeks{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  #skyline{bottom:42vh;opacity:.4}
+  #pier{bottom:31vh;height:13vh;opacity:.68;left:auto;right:0;width:62%}
+  #palms{height:52vh}
+  #water{height:30vh}
+  #plane{width:80vw;top:11vh}
+  #sun{width:64vw}
+  .card,.panel,.exp,.week,.chip,.bar{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (max-width:560px){
+  .hero{padding:12vh 0 22vh}
+  .hero-cta .btn{width:100%}
+  .weeks{gap:6px;flex-wrap:nowrap}
+  .week{flex:1;min-width:0;padding:10px 6px;text-align:center}
+  .week b{font-size:16px}.week span{font-size:12px}
+  .gallery{columns:2}
+  .steps{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  #plane{animation:none;transform:translateX(22vw)}
+  .rv{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="hero">
-  <div class="hero-inner">
-    <p class="kicker">The Official College Takeover</p>
-    <h1>Houston <span class="sub">Spring Break 2027</span></h1>
-    <p class="hero-lead">March 10 – 28, 2027 · Houston, Texas<br>Mansion, pool, yacht and day parties for college students from 300+ schools</p>
-    <div class="weeks-line">
-      <a class="wk" href="#week-1"><b>Week 1</b><span>March 8 – 14</span></a>
-      <a class="wk" href="#week-2"><b>Week 2</b><span>March 15 – 21</span></a>
-      <a class="wk" href="#week-3"><b>Week 3</b><span>March 22 – 28</span></a>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets · from $20</a>
-      <a class="btn btn-ghost" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the GroupMe</a>
-    </div>
-    <p class="hero-links"><a href="#tickets">Party Packs from $80</a><span class="dot">·</span><a href="#school-list">2027 School List</a></p>
+<div id="sky"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div id="glow" aria-hidden="true"></div>
+<div id="sun" aria-hidden="true"></div>
+
+<div class="layer" id="skyline" aria-hidden="true">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><g fill="#2a1436">
+    <rect x="40" y="120" width="34" height="80"/><rect x="82" y="86" width="26" height="114"/><rect x="118" y="140" width="40" height="60"/>
+    <rect x="168" y="60" width="30" height="140"/><polygon points="168,60 183,34 198,60"/>
+    <rect x="212" y="110" width="44" height="90"/><rect x="266" y="70" width="24" height="130"/>
+    <rect x="300" y="128" width="52" height="72"/><rect x="360" y="44" width="34" height="156"/><polygon points="360,44 377,16 394,44"/>
+    <rect x="404" y="100" width="28" height="100"/><rect x="442" y="132" width="46" height="68"/>
+    <rect x="498" y="78" width="30" height="122"/><rect x="536" y="116" width="38" height="84"/>
+    <rect x="584" y="54" width="36" height="146"/><rect x="630" y="124" width="30" height="76"/>
+    <rect x="672" y="92" width="42" height="108"/><rect x="722" y="138" width="34" height="62"/>
+    <rect x="766" y="66" width="28" height="134"/><polygon points="766,66 780,40 794,66"/>
+    <rect x="806" y="118" width="48" height="82"/><rect x="866" y="88" width="26" height="112"/>
+    <rect x="902" y="134" width="40" height="66"/><rect x="952" y="74" width="32" height="126"/>
+    <rect x="994" y="126" width="44" height="74"/><rect x="1048" y="98" width="28" height="102"/>
+    <rect x="1086" y="140" width="52" height="60"/><rect x="1148" y="110" width="30" height="90"/>
+  </g></svg>
+</div>
+
+<div class="layer" id="pier" aria-hidden="true">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none"><g fill="#1d0f2e">
+    <rect x="720" y="150" width="440" height="12"/>
+    <rect x="742" y="162" width="7" height="38"/><rect x="800" y="162" width="7" height="38"/><rect x="858" y="162" width="7" height="38"/>
+    <rect x="916" y="162" width="7" height="38"/><rect x="974" y="162" width="7" height="38"/><rect x="1032" y="162" width="7" height="38"/><rect x="1090" y="162" width="7" height="38"/>
+    <circle cx="870" cy="104" r="46" fill="none" stroke="#1d0f2e" stroke-width="5"/>
+    <g id="wheel" style="transform-origin:870px 104px">
+      <circle cx="870" cy="104" r="34" fill="none" stroke="#1d0f2e" stroke-width="3"/>
+      <path d="M870 58 L870 150 M824 104 L916 104 M838 72 L902 136 M902 72 L838 136" stroke="#1d0f2e" stroke-width="3"/>
+    </g>
+    <path d="M846 150 L870 108 L894 150 Z"/>
+    <rect x="1000" y="120" width="10" height="30"/><rect x="1040" y="110" width="10" height="40"/>
+  </g></svg>
+</div>
+
+<div class="layer" id="water" aria-hidden="true"><canvas id="sea"></canvas></div>
+
+<div class="layer" id="palms" aria-hidden="true">
+  <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice">
+    <g fill="#150a24">
+      <g id="palmL" style="transform-origin:120px 700px">
+        <path d="M112 700 C108 560 104 470 84 392 l24 -6 c20 84 26 180 28 314 z"/>
+        <path d="M100 392 C60 350 22 336 -8 344 c34 -28 84 -22 116 18 z"/>
+        <path d="M104 388 C82 330 44 296 6 286 c48 -6 92 26 112 92 z"/>
+        <path d="M110 384 C118 320 154 276 200 258 c-30 40 -58 74 -70 130 z"/>
+        <path d="M116 390 C160 356 214 350 254 368 c-48 -4 -92 6 -126 36 z"/>
+        <path d="M108 386 C96 338 96 288 116 246 c10 46 8 94 6 142 z"/>
+        <circle cx="106" cy="392" r="9"/><circle cx="122" cy="398" r="7"/>
+      </g>
+      <g id="palmR" style="transform-origin:1090px 700px">
+        <path d="M1088 700 C1094 574 1102 486 1124 414 l-24 -8 c-22 78 -30 168 -34 294 z"/>
+        <path d="M1108 410 C1150 366 1192 352 1222 362 c-36 -28 -88 -20 -118 20 z"/>
+        <path d="M1104 406 C1128 348 1166 314 1204 304 c-48 -8 -94 24 -114 90 z"/>
+        <path d="M1098 402 C1088 338 1052 294 1006 276 c30 40 58 74 70 130 z"/>
+        <path d="M1092 408 C1048 374 994 368 954 386 c48 -4 92 6 126 36 z"/>
+        <circle cx="1102" cy="410" r="9"/><circle cx="1086" cy="416" r="7"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<div id="grain" aria-hidden="true"></div>
+
+<svg id="plane" viewBox="0 0 560 60" role="img" aria-label="Tickets from $20">
+  <g fill="#150a24"><path d="M498 30 l-26 -12 -8 6 8 6 -34 0 -14 -12 -8 0 6 12 -6 12 8 0 14 -12 34 0 -8 6 8 6 26 -12z"/></g>
+  <line x1="300" y1="30" x2="430" y2="30" stroke="#150a24" stroke-width="2"/>
+  <rect x="20" y="12" width="280" height="36" rx="6" fill="#FFF6E8"/>
+  <text x="160" y="35" text-anchor="middle">TICKETS FROM $20 →</text>
+</svg>
+
+<header class="bar" id="bar">
+  <a class="mark" href="#top">Houston <span>Spring Break 27</span></a>
+  <div class="bar-cta">
+    <a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Tickets</a>
+    <a class="btn btn-aqua" href="https://groupme.com/join_group/117252442/pLz9YWNs">GroupMe</a>
   </div>
-  <p class="hero-foot">Mansion Parties<span class="dot">·</span>Club Events<span class="dot">·</span>Pool Parties</p>
 </header>
 
-<main id="main">
-<div class="marquee" aria-hidden="true"><div class="marquee-track">
-  MANSION PARTIES · CLUB EVENTS · POOL PARTIES · YACHT PARTIES · TICKETS ON SALE NOW ·&nbsp;
-  MANSION PARTIES · CLUB EVENTS · POOL PARTIES · YACHT PARTIES · TICKETS ON SALE NOW ·&nbsp;
-</div></div>
-
-<section class="three-weeks" aria-labelledby="weeks-h">
+<section class="hero" id="top">
   <div class="wrap">
-    <h2 id="weeks-h">Three Weeks In March</h2>
-    <div class="h2-rule"></div>
-    <p class="about">
-      <b>Houston Spring Break 2027</b> runs <b>Wednesday, March 10 through Sunday, March 28, 2027</b> in Houston, Texas.
-      Three weeks of mansion parties, pool parties, a booze boat party, day parties and club nights for college students
-      and young professionals from 300+ schools, with a big HBCU turnout. Every week runs Thursday to Sunday with the same
-      lineup, so you can plan around your own school's spring break.
-    </p>
-    <div class="week-rows">
-      <a class="week-row" href="#week-1"><b>Week 1</b><span>March 8th – 14th</span></a>
-      <a class="week-row" href="#week-2"><b>Week 2</b><span>March 15th – 21st <i>Biggest week</i></span></a>
-      <a class="week-row" href="#week-3"><b>Week 3</b><span>March 22nd – 28th</span></a>
+    <p class="kicker">The Official College Takeover</p>
+    <h1>Houston<span class="sb">Spring Break 2027</span></h1>
+    <p class="hero-meta">March 10 – 28, 2027 · Houston, Texas<br>Mansion, pool, yacht and day parties for college students from 300+ schools</p>
+    <div class="hero-cta">
+      <a class="btn btn-sun btn-lg" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets · from $20</a>
+      <a class="btn btn-aqua btn-lg" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the GroupMe</a>
     </div>
-    <p class="note">Tickets On Sale Now</p>
+    <div class="second">
+      <a class="chip" href="https://posh.vip/e/houston-spring-break-2027-2"><b>Free RSVP on Posh</b> · see who's going</a>
+      <a class="chip" href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform"><b>Promo team</b> · apply to sell</a>
+    </div>
+    <div class="weeks">
+      <a class="week" href="#week-1"><b>Week 1</b><span>March 8 – 14</span></a>
+      <a class="week big" href="#week-2"><b>Week 2</b><span>March 15 – 21</span><i>Biggest week</i></a>
+      <a class="week" href="#week-3"><b>Week 3</b><span>March 22 – 28</span></a>
+    </div>
   </div>
 </section>
 
+<div class="marquee" aria-hidden="true"><div class="mq-track">
+  <span>Mansion Parties</span><span>Pool Parties</span><span>Yacht Parties</span><span>Club Events</span><span>Day Parties</span><span>Tickets On Sale Now</span>
+  <span>Mansion Parties</span><span>Pool Parties</span><span>Yacht Parties</span><span>Club Events</span><span>Day Parties</span><span>Tickets On Sale Now</span>
+</div></div>
+
+<main id="main">
+
+<!-- ===== TICKETS (priority 1) ===== -->
+<section class="packs" id="tickets" aria-labelledby="packs-h">
+  <div class="wrap">
+    <p class="eyebrow rv">Step 1 · Get in</p>
+    <h2 id="packs-h" class="rv">Party Packs</h2>
+    <p class="lede rv">One ticket covers every event in your week. Or grab single parties from $20. Prices go up as each week fills.</p>
+    <div class="grid-3">
+      <article class="card pack c-sun rv">
+        <p class="pk-week">Week 1</p><p class="pk-dates">March 8 – 14</p>
+        <p class="pk-amt">$80<span>Party Pack</span></p>
+        <p class="pk-note">Covers every event that week. About $225 if you bought each party separately.</p>
+        <a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 1 Pack</a>
+        <a class="pk-link" href="#week-1">See the Week 1 lineup</a>
+      </article>
+      <article class="card pack hot c-rose rv">
+        <span class="tag">Biggest week</span>
+        <p class="pk-week">Week 2</p><p class="pk-dates">March 15 – 21</p>
+        <p class="pk-amt">$150<span>Party Pack</span></p>
+        <p class="pk-note">Covers every event that week. About $285 if you bought each party separately.</p>
+        <a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 2 Pack</a>
+        <a class="pk-link" href="#week-2">See the Week 2 lineup</a>
+      </article>
+      <article class="card pack c-aqua rv">
+        <p class="pk-week">Week 3</p><p class="pk-dates">March 22 – 28</p>
+        <p class="pk-amt">$80<span>Party Pack</span></p>
+        <p class="pk-note">Covers every event that week. About $225 if you bought each party separately.</p>
+        <a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 3 Pack</a>
+        <a class="pk-link" href="#week-3">See the Week 3 lineup</a>
+      </article>
+    </div>
+    <div class="facts rv">
+      <span><b>Booze Boat w/ open bar</b> $80 · 21+</span>
+      <span><b>Friday Brunch + Day Party</b> free · 21+</span>
+      <span><b>Single parties</b> from $20 · 18+ unless marked</span>
+      <span>Prices before fees · on <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873" style="color:var(--sun);text-decoration:underline">Eventbrite</a> and <a href="https://posh.vip/e/houston-spring-break-2027-2" style="color:var(--sun);text-decoration:underline">Posh</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GROUPME (priority 2) ===== -->
+<section id="groupme" aria-labelledby="gm-h">
+  <div class="wrap">
+    <div class="panel rv">
+      <p class="eyebrow">Step 2 · Stay in</p>
+      <h2 id="gm-h" style="margin-top:12px">Addresses drop in the GroupMe</h2>
+      <p class="lede">Mansion and pool locations are announced the week of each event — that's how we keep them ours. Ticket holders and the official GroupMe get them first, plus day-of updates and the drops before they sell out.</p>
+      <div class="hero-cta" style="justify-content:flex-start">
+        <a class="btn btn-aqua btn-lg" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the Official GroupMe</a>
+        <a class="btn btn-ghost" href="https://posh.vip/e/houston-spring-break-2027-2">Free RSVP on Posh</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHOOL LIST ===== -->
 <section class="schools" id="school-list" aria-labelledby="schools-h">
   <div class="wrap">
-    <h2 id="schools-h">Official 2027 School List</h2>
-    <div class="h2-rule"></div>
-    <p class="about">The official Houston Spring Break 2027 School List puts every school on the week that matches its spring break. Find your school, then lock in your week.</p>
-    <figure class="sl-master">
+    <p class="eyebrow rv">Find your week</p>
+    <h2 id="schools-h" class="rv">Official 2027 School List</h2>
+    <p class="lede rv">The official Houston Spring Break 2027 School List puts every school on the week that matches its spring break. Find your school, then lock in your week.</p>
+    <figure class="sl-master rv">
       <a href="img/school-list-2027.jpg"><picture><source type="image/webp" srcset="img/school-list-2027-800.webp 800w, img/school-list-2027.webp 1600w" sizes="(max-width:1100px) 100vw, 1060px"><img src="img/school-list-2027.jpg" width="1600" height="1236" loading="lazy" decoding="async" alt="Official Houston Spring Break 2027 School List flyer showing the schools on Week 1, Week 2 and Week 3, with HBCUs highlighted"></picture></a>
       <figcaption>All three weeks · tap to open full size</figcaption>
     </figure>
-    <div class="sl-weeks">
+    <div class="sl-weeks rv">
       <figure><a href="img/school-list-week-1.jpg"><picture><source type="image/webp" srcset="img/school-list-week-1-800.webp 800w, img/school-list-week-1.webp 1600w" sizes="(max-width:900px) 100vw, 340px"><img src="img/school-list-week-1.jpg" width="1600" height="1236" loading="lazy" decoding="async" alt="Houston Spring Break 2027 Week 1 school list flyer"></picture></a><figcaption>Week 1 · March 8 – 14</figcaption></figure>
       <figure><a href="img/school-list-week-2.jpg"><picture><source type="image/webp" srcset="img/school-list-week-2-800.webp 800w, img/school-list-week-2.webp 1600w" sizes="(max-width:900px) 100vw, 340px"><img src="img/school-list-week-2.jpg" width="1600" height="1236" loading="lazy" decoding="async" alt="Houston Spring Break 2027 Week 2 school list flyer"></picture></a><figcaption>Week 2 · March 15 – 21</figcaption></figure>
       <figure><a href="img/school-list-week-3.jpg"><picture><source type="image/webp" srcset="img/school-list-week-3-800.webp 800w, img/school-list-week-3.webp 1600w" sizes="(max-width:900px) 100vw, 340px"><img src="img/school-list-week-3.jpg" width="1600" height="1236" loading="lazy" decoding="async" alt="Houston Spring Break 2027 Week 3 school list flyer"></picture></a><figcaption>Week 3 · March 22 – 28</figcaption></figure>
@@ -657,35 +779,22 @@
   </div>
 </section>
 
-
-
-<section class="packs" id="tickets" aria-labelledby="packs-h">
-  <div class="wrap">
-    <h2 id="packs-h">Party Packs</h2>
-    <div class="h2-rule"></div>
-    <p class="about">One ticket covers every event in your week. Or grab single parties from $20.</p>
-    <div class="pack-grid"><article class="pack"><p class="pk-week">Week 1</p><p class="pk-dates">March 8 – 14</p><p class="pk-amt">$80<span>Party Pack</span></p><p class="pk-note">Covers every event that week. About $225 if you bought each party separately.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 1 Pack</a><a class="pk-link" href="#week-1">See the Week 1 lineup</a></article><article class="pack pack-hot"><p class="pk-week">Week 2 · Biggest week</p><p class="pk-dates">March 15 – 21</p><p class="pk-amt">$150<span>Party Pack</span></p><p class="pk-note">Covers every event that week. About $285 if you bought each party separately.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 2 Pack</a><a class="pk-link" href="#week-2">See the Week 2 lineup</a></article><article class="pack"><p class="pk-week">Week 3</p><p class="pk-dates">March 22 – 28</p><p class="pk-amt">$80<span>Party Pack</span></p><p class="pk-note">Covers every event that week. About $225 if you bought each party separately.</p><a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get the Week 3 Pack</a><a class="pk-link" href="#week-3">See the Week 3 lineup</a></article></div>
-    <div class="pack-facts">
-      <p><b>Single parties</b> from $20 · <b>Friday Brunch + Day Party</b> free (21+)</p>
-      <p>Prices shown before fees. Tickets on <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Eventbrite</a> and <a href="https://posh.vip/e/houston-spring-break-2027-2">Posh</a>.</p>
-    </div>
-  </div>
-</section>
-
+<!-- ===== LINEUP ===== -->
 <section class="lineup" id="lineup" aria-labelledby="lineup-h">
   <div class="wrap">
-    <h2 id="lineup-h">The Lineup, Day By Day</h2>
-    <div class="h2-rule"></div>
-    <p class="about">Same four nights every week: a booze boat and Pretty Nasty on Thursday, brunch, a pool party and Houston Gone Wild on Friday, a day party and Freaknik HTX on Saturday, and a day party plus March Madness on Sunday. Prices are single tickets before fees.</p>
-    <div class="lw-grid"><article class="lw" id="week-1"><h3 class="lw-h">Week 1<span>March 8 – 14</span></h3><p class="lw-note">Kicks off Wednesday, March 10. Parties run Thursday, March 11 through Sunday, March 14.</p><div class="lw-day"><h4>Thursday, March 11</h4><ul><li><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-name">Pretty Nasty</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Friday, March 12</h4><ul><li><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$20</span></li><li><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Saturday, March 13</h4><ul><li><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-name">Freaknik HTX</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Sunday, March 14</h4><ul><li><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$20</span></li><li><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$20</span></li></ul></div><a class="btn btn-gold lw-btn" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 1 Party Pack · $80</a></article><article class="lw lw-hot" id="week-2"><h3 class="lw-h">Week 2<span>March 15 – 21</span></h3><p class="lw-note">The biggest week. Parties run Thursday, March 18 through Sunday, March 21.</p><div class="lw-day"><h4>Thursday, March 18</h4><ul><li><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-name">Pretty Nasty</span><span class="pk-price">$30</span></li></ul></div><div class="lw-day"><h4>Friday, March 19</h4><ul><li><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$30</span></li><li><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$30</span></li></ul></div><div class="lw-day"><h4>Saturday, March 20</h4><ul><li><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-name">Freaknik HTX</span><span class="pk-price">$30</span></li></ul></div><div class="lw-day"><h4>Sunday, March 21</h4><ul><li><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$30</span></li><li><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$30</span></li></ul></div><a class="btn btn-gold lw-btn" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 2 Party Pack · $150</a></article><article class="lw" id="week-3"><h3 class="lw-h">Week 3<span>March 22 – 28</span></h3><p class="lw-note">The closing week. Parties run Thursday, March 25 through Sunday, March 28.</p><div class="lw-day"><h4>Thursday, March 25</h4><ul><li><span class="pk-name">Booze Boat Party w/ Open Bar <em>21+</em></span><span class="pk-price">$80</span></li><li><span class="pk-name">Pretty Nasty</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Friday, March 26</h4><ul><li><span class="pk-name">Brunch + Day Party <em>21+</em></span><span class="pk-price">Free</span></li><li><span class="pk-name">Splash City HTX Pool Party</span><span class="pk-price">$20</span></li><li><span class="pk-name">Houston Gone Wild</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Saturday, March 27</h4><ul><li><span class="pk-name">Day Party</span><span class="pk-price">$25</span></li><li><span class="pk-name">Freaknik HTX</span><span class="pk-price">$20</span></li></ul></div><div class="lw-day"><h4>Sunday, March 28</h4><ul><li><span class="pk-name">Day Party <em>21+</em></span><span class="pk-price">$20</span></li><li><span class="pk-name">March Madness <em>21+</em></span><span class="pk-price">$20</span></li></ul></div><a class="btn btn-gold lw-btn" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 3 Party Pack · $80</a></article></div>
+    <p class="eyebrow rv">The plan</p>
+    <h2 id="lineup-h" class="rv">The Lineup, Day By Day</h2>
+    <p class="lede rv">Same four nights every week: a booze boat and Pretty Nasty on Thursday, brunch, a pool party and Houston Gone Wild on Friday, a day party and Freaknik HTX on Saturday, and a day party plus March Madness on Sunday. Prices are single tickets before fees.</p>
+    <div class="lineup-grid"><article class="card lw c-sun" id="week-1"><h3 >Week 1<span>March 8 – 14</span></h3><p class="lw-note">Kicks off Wednesday, March 10. Parties run Thursday, March 11 through Sunday, March 14.</p><div class="day"><h4>Thursday, March 11</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Friday, March 12</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$20</span></li><li><span>Houston Gone Wild</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Saturday, March 13</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Sunday, March 14</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$20</span></li><li><span>March Madness <em>21+</em></span><span class="price">$20</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 1 Party Pack · $80</a></article><article class="card lw hot c-rose" id="week-2"><h3 >Week 2<span>March 15 – 21</span></h3><p class="lw-note">The biggest week. Parties run Thursday, March 18 through Sunday, March 21.</p><div class="day"><h4>Thursday, March 18</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Friday, March 19</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$30</span></li><li><span>Houston Gone Wild</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Saturday, March 20</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Sunday, March 21</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$30</span></li><li><span>March Madness <em>21+</em></span><span class="price">$30</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 2 Party Pack · $150</a></article><article class="card lw c-aqua" id="week-3"><h3 >Week 3<span>March 22 – 28</span></h3><p class="lw-note">The closing week. Parties run Thursday, March 25 through Sunday, March 28.</p><div class="day"><h4>Thursday, March 25</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Friday, March 26</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$20</span></li><li><span>Houston Gone Wild</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Saturday, March 27</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Sunday, March 28</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$20</span></li><li><span>March Madness <em>21+</em></span><span class="price">$20</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Week 3 Party Pack · $80</a></article></div>
   </div>
 </section>
 
+<!-- ===== HOW IT WORKS ===== -->
 <section class="how" aria-labelledby="how-h">
   <div class="wrap">
-    <h2 id="how-h">How It Works</h2>
-    <div class="h2-rule"></div>
-    <ol class="steps">
+    <p class="eyebrow rv">How it works</p>
+    <h2 id="how-h" class="rv">Four Steps</h2>
+    <ol class="steps rv">
       <li><b>Find your week</b><span>Check the <a href="#school-list">2027 School List</a> for your school's week, or pick the one that fits your break.</span></li>
       <li><b>Get your tickets</b><span>A <a href="#tickets">Party Pack</a> covers the whole week. Singles start at $20 on <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Eventbrite</a> or <a href="https://posh.vip/e/houston-spring-break-2027-2">Posh</a>.</span></li>
       <li><b>Join the GroupMe</b><span>The <a href="https://groupme.com/join_group/117252442/pLz9YWNs">official GroupMe</a> is where venue drops and day-of updates land.</span></li>
@@ -694,25 +803,28 @@
   </div>
 </section>
 
+<!-- ===== EXPERIENCE ===== -->
 <section aria-labelledby="exp-h">
   <div class="wrap">
-    <h2 id="exp-h">The Experience</h2>
-    <div class="h2-rule"></div>
-    <div class="exp-grid">
-      <div class="exp"><span class="ico" aria-hidden="true">🏛️</span><span>Mansion Parties</span></div>
-      <div class="exp"><span class="ico" aria-hidden="true">🏊</span><span>Pool Parties</span></div>
-      <div class="exp"><span class="ico" aria-hidden="true">🛥️</span><span>Yacht Parties</span></div>
-      <div class="exp"><span class="ico" aria-hidden="true">🪩</span><span>Club Events</span></div>
-      <div class="exp"><span class="ico" aria-hidden="true">☀️</span><span>Day Parties</span></div>
-      <div class="exp"><span class="ico" aria-hidden="true">🎤</span><span>Celebrity Hosts</span></div>
+    <p class="eyebrow rv">What you're walking into</p>
+    <h2 id="exp-h" class="rv">The Experience</h2>
+    <div class="exp-grid rv">
+      <div class="exp c-rose"><span class="ico" aria-hidden="true">🏛️</span><span>Mansion Parties</span></div>
+      <div class="exp c-aqua"><span class="ico" aria-hidden="true">🏊</span><span>Pool Parties</span></div>
+      <div class="exp c-lime"><span class="ico" aria-hidden="true">🛥️</span><span>Yacht Parties</span></div>
+      <div class="exp c-plum"><span class="ico" aria-hidden="true">🪩</span><span>Club Events</span></div>
+      <div class="exp c-sun"><span class="ico" aria-hidden="true">☀️</span><span>Day Parties</span></div>
+      <div class="exp c-rose"><span class="ico" aria-hidden="true">🎤</span><span>Celebrity Hosts</span></div>
     </div>
   </div>
 </section>
-<section>
+
+<!-- ===== GALLERY ===== -->
+<section aria-labelledby="gal-h">
   <div class="wrap">
-    <h2>Pictures From Previous Years</h2>
-    <div class="h2-rule"></div>
-    <div class="gallery-grid">
+    <p class="eyebrow rv">Previous years</p>
+    <h2 id="gal-h" class="rv">Pictures From Previous Years</h2>
+    <div class="gallery rv">
       <img src="img/gal-1.webp" width="600" height="750" loading="lazy" decoding="async" alt="Night mansion pool party aerial view">
       <img src="img/gal-2.webp" width="600" height="750" loading="lazy" decoding="async" alt="Pool party with stage lighting">
       <img src="img/gal-3.webp" width="600" height="750" loading="lazy" decoding="async" alt="Packed night pool party">
@@ -729,35 +841,186 @@
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
 <section class="faq" id="faq" aria-labelledby="faq-h">
   <div class="wrap">
-    <h2 id="faq-h">Houston Spring Break FAQ</h2>
-    <div class="h2-rule"></div>
-    <div class="faq-list"><details class="faq-q" open><summary><h3>When is Houston Spring Break 2027?</h3></summary><p>Houston Spring Break 2027 runs Wednesday, March 10 through Sunday, March 28, 2027, in three weeks: Week 1 is March 8–14 (parties Thursday 3/11 to Sunday 3/14, kicking off Wednesday 3/10), Week 2 is March 15–21 (parties Thursday 3/18 to Sunday 3/21, the biggest week), and Week 3 is March 22–28 (parties Thursday 3/25 to Sunday 3/28).</p></details><details class="faq-q" open><summary><h3>Where are the Houston spring break parties?</h3></summary><p>All events are in Houston, Texas: mansion parties, pool parties, a booze boat party, day parties and club nights. Venue addresses are announced the week of each event and sent to ticket holders and the official GroupMe.</p></details><details class="faq-q"><summary><h3>What is the age requirement?</h3></summary><p>Events are 18+ unless marked 21+. The Booze Boat Party with open bar, the Friday Brunch + Day Party, the Sunday Day Party and March Madness are 21+.</p></details><details class="faq-q"><summary><h3>What is included in a Party Pack?</h3></summary><p>A Party Pack covers every event in one week at one price: <b>$80</b> for Week 1, <b>$150</b> for Week 2 and <b>$80</b> for Week 3. Bought separately, the same events come to about $225 (Weeks 1 and 3) or about $285 (Week 2). Single party tickets start at $20. Prices exclude fees. <a href="#tickets">Compare the packs</a>.</p></details><details class="faq-q"><summary><h3>How do I get the party addresses?</h3></summary><p>Addresses are announced the week of each event. They are sent to ticket holders and posted in the <a href="https://groupme.com/join_group/117252442/pLz9YWNs">official Houston Spring Break GroupMe</a>, so buy your tickets and join the GroupMe.</p></details><details class="faq-q"><summary><h3>Can I get a VIP section or cabana?</h3></summary><p>Yes. For sections and cabanas, text <a href="sms:+13019807994">301-980-7994</a>.</p></details><details class="faq-q"><summary><h3>Which week should I come?</h3></summary><p>Come the week your school is on spring break. The <a href="#school-list">official 2027 School List</a> shows which week each school is on. Week 2 (March 15–21) is the biggest week.</p></details><details class="faq-q"><summary><h3>Is Houston Spring Break for college students?</h3></summary><p>Yes. Houston Spring Break is built for college students and young professionals, with 300+ schools on the 2027 School List and a strong HBCU turnout.</p></details><details class="faq-q"><summary><h3>How do I become a Houston Spring Break promoter?</h3></summary><p>Apply to join the promo team through the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform">promo team application form</a>.</p></details><details class="faq-q"><summary><h3>Where do I buy tickets?</h3></summary><p>Tickets and Party Packs are sold on <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Eventbrite</a> and <a href="https://posh.vip/e/houston-spring-break-2027-2">Posh</a>. Links are also on <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a>.</p></details></div>
+    <p class="eyebrow rv">Questions</p>
+    <h2 id="faq-h" class="rv">Houston Spring Break FAQ</h2>
+    <div class="faq-list rv"><details class="faq-q" open><summary><h3>When is Houston Spring Break 2027?</h3></summary><p>Houston Spring Break 2027 runs Wednesday, March 10 through Sunday, March 28, 2027, in three weeks: Week 1 is March 8–14 (parties Thursday 3/11 to Sunday 3/14, kicking off Wednesday 3/10), Week 2 is March 15–21 (parties Thursday 3/18 to Sunday 3/21, the biggest week), and Week 3 is March 22–28 (parties Thursday 3/25 to Sunday 3/28).</p></details><details class="faq-q" open><summary><h3>Where are the Houston spring break parties?</h3></summary><p>All events are in Houston, Texas: mansion parties, pool parties, a booze boat party, day parties and club nights. Venue addresses are announced the week of each event and sent to ticket holders and the official GroupMe.</p></details><details class="faq-q"><summary><h3>What is the age requirement?</h3></summary><p>Events are 18+ unless marked 21+. The Booze Boat Party with open bar, the Friday Brunch + Day Party, the Sunday Day Party and March Madness are 21+.</p></details><details class="faq-q"><summary><h3>What is included in a Party Pack?</h3></summary><p>A Party Pack covers every event in one week at one price: <b>$80</b> for Week 1, <b>$150</b> for Week 2 and <b>$80</b> for Week 3. Bought separately, the same events come to about $225 (Weeks 1 and 3) or about $285 (Week 2). Single party tickets start at $20. Prices exclude fees. <a href="#tickets">Compare the packs</a>.</p></details><details class="faq-q"><summary><h3>How do I get the party addresses?</h3></summary><p>Addresses are announced the week of each event. They are sent to ticket holders and posted in the <a href="https://groupme.com/join_group/117252442/pLz9YWNs">official Houston Spring Break GroupMe</a>, so buy your tickets and join the GroupMe.</p></details><details class="faq-q"><summary><h3>Can I get a VIP section or cabana?</h3></summary><p>Yes. For sections and cabanas, text <a href="sms:+13019807994">301-980-7994</a>.</p></details><details class="faq-q"><summary><h3>Which week should I come?</h3></summary><p>Come the week your school is on spring break. The <a href="#school-list">official 2027 School List</a> shows which week each school is on. Week 2 (March 15–21) is the biggest week.</p></details><details class="faq-q"><summary><h3>Is Houston Spring Break for college students?</h3></summary><p>Yes. Houston Spring Break is built for college students and young professionals, with 300+ schools on the 2027 School List and a strong HBCU turnout.</p></details><details class="faq-q"><summary><h3>How do I become a Houston Spring Break promoter?</h3></summary><p>Apply to join the promo team through the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform">promo team application form</a>.</p></details><details class="faq-q"><summary><h3>Where do I buy tickets?</h3></summary><p>Tickets and Party Packs are sold on <a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Eventbrite</a> and <a href="https://posh.vip/e/houston-spring-break-2027-2">Posh</a>. Links are also on <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a>.</p></details></div>
     <p class="faq-media">By attending any Houston Spring Break 2027 event you consent to being filmed or photographed for promotional use.</p>
   </div>
 </section>
 
-<section class="final-cta">
+<!-- ===== FINAL ===== -->
+<section class="final" aria-labelledby="final-h">
   <div class="wrap">
-    <h2>Lock In Your Spring Break</h2>
-    <p class="sub">Venue addresses drop in the GroupMe the week of each event</p>
-    <div class="cta-row">
-      <a class="btn btn-gold" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets</a>
-      <a class="btn btn-ghost" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the GroupMe</a>
+    <p class="eyebrow rv">Lock it in</p>
+    <h2 id="final-h" class="rv">Two Things To Do Right Now</h2>
+    <p class="lede rv" style="margin-left:auto;margin-right:auto">Grab your week's pack, then join the GroupMe so you get the addresses.</p>
+    <div class="hero-cta rv">
+      <a class="btn btn-sun btn-lg" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Get Tickets</a>
+      <a class="btn btn-aqua btn-lg" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the GroupMe</a>
     </div>
-    <p class="hero-links"><a href="https://posh.vip/e/houston-spring-break-2027-2">Also on Posh</a><span class="dot">·</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform">Join the promo team</a><span class="dot">·</span><a href="sms:+13019807994">Sections: text 301-980-7994</a></p>
+    <div class="second rv">
+      <a class="chip" href="https://posh.vip/e/houston-spring-break-2027-2"><b>Free RSVP on Posh</b></a>
+      <a class="chip" href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform"><b>Promo team application</b></a>
+      <a class="chip" href="sms:+13019807994?&body=SECTIONS"><b>Sections &amp; cabanas</b> · text 301-980-7994</a>
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer>
-  Presented by <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> · Hosted by <a href="https://www.instagram.com/ojlajuice">@ojlajuice</a><br>
-  <a href="/links/">All links</a> · <a href="#school-list">School List</a> · <a href="#tickets">Party Packs</a> · <a href="#faq">FAQ</a><br>
-  Houston Spring Break 2027 · Houston, TX
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Tickets</h4>
+        <ul>
+          <li><a href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">Eventbrite · packs &amp; singles</a></li>
+          <li><a href="https://posh.vip/e/houston-spring-break-2027-2">Posh · free RSVP</a></li>
+          <li><a href="#tickets">Party Packs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the loop</h4>
+        <ul>
+          <li><a href="https://groupme.com/join_group/117252442/pLz9YWNs">Official GroupMe</a></li>
+          <li><a href="https://www.instagram.com/houston_springbreak">Instagram</a></li>
+          <li><a href="/links/">All links</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Book with us</h4>
+        <ul>
+          <li><a href="sms:+13019807994?&body=SECTIONS">Sections &amp; cabanas · text 301-980-7994</a></li>
+          <li><a href="sms:+13019807994?&body=GROUP">Group bookings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plan your trip</h4>
+        <ul>
+          <li><a href="#school-list">2027 School List</a></li>
+          <li><a href="#lineup">Lineup, day by day</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform">Join the promo team</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-base">Presented by <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> · Hosted by <a href="https://www.instagram.com/ojlajuice">@ojlajuice</a><br>
+    Houston Spring Break 2027 · Houston, TX</p>
+  </div>
 </footer>
 
+<script>
+(function(){
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sky=document.getElementById('sky'), sun=document.getElementById('sun'), glow=document.getElementById('glow'),
+      stars=document.getElementById('stars'), skyline=document.getElementById('skyline'),
+      pier=document.getElementById('pier'), palms=document.getElementById('palms'), bar=document.getElementById('bar');
 
+  var K=[['#8FD3F4','#FFD27A','#FFB37A','#FF9E5E'],
+         ['#F7B267','#FF9E5E','#F2677B','#FF8C6B'],
+         ['#8E3B8F','#F2677B','#FF9E5E','#FFC98C'],
+         ['#241243','#5B2A6E','#8E3B8F','#F2677B'],
+         ['#140B26','#241243','#3B1E57','#6B2F6B']];
+  function hx(c){return [parseInt(c.substr(1,2),16),parseInt(c.substr(3,2),16),parseInt(c.substr(5,2),16)];}
+  function mix(a,b,t){var A=hx(a),B=hx(b);return 'rgb('+Math.round(A[0]+(B[0]-A[0])*t)+','+Math.round(A[1]+(B[1]-A[1])*t)+','+Math.round(A[2]+(B[2]-A[2])*t)+')';}
+
+  var lastY=0;
+  function paint(){
+    var max=document.body.scrollHeight-innerHeight, p=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+    var f=p*(K.length-1), i=Math.min(K.length-2,Math.floor(f)), t=f-i;
+    for(var c=0;c<4;c++) sky.style.setProperty('--c'+(c+1), mix(K[i][c],K[i+1][c],t));
+    var sp=46+p*34;
+    sun.style.top=sp+'vh';
+    sun.style.opacity=(1-Math.max(0,p-.62)*2.4).toFixed(2);
+    glow.style.setProperty('--sunpct',sp+'%');
+    glow.style.opacity=(1-p*.55).toFixed(2);
+    stars.style.opacity=Math.max(0,(p-.55)*2.2).toFixed(2);
+    skyline.style.transform='translateY('+(p*44)+'px)';
+    pier.style.transform='translateY('+(p*80)+'px)';
+    palms.style.transform='translateY('+(p*140)+'px) scale('+(1+p*.06)+')';
+    bar.classList.toggle('show', scrollY>innerHeight*.75);
+    lastY=scrollY;
+  }
+  addEventListener('scroll',paint,{passive:true}); addEventListener('resize',paint); paint();
+
+  var sc=stars.getContext('2d');
+  function starfield(){
+    stars.width=innerWidth; stars.height=innerHeight; sc.clearRect(0,0,innerWidth,innerHeight);
+    for(var i=0;i<140;i++){
+      var x=Math.random()*innerWidth, y=Math.random()*innerHeight*.7, r=Math.random()<.12?1.6:.9;
+      sc.fillStyle='rgba(255,246,232,'+(.35+Math.random()*.5)+')';
+      sc.beginPath(); sc.arc(x,y,r,0,6.283); sc.fill();
+    }
+  }
+  starfield(); addEventListener('resize',starfield);
+
+  /* the Gulf */
+  var sea=document.getElementById('sea'), g=sea.getContext('2d'), W,H, DPR=Math.min(devicePixelRatio||1,2), t=0, run=true;
+  function size(){var b=sea.getBoundingClientRect(); W=b.width; H=b.height; sea.width=W*DPR; sea.height=H*DPR; g.setTransform(DPR,0,0,DPR,0,0);}
+  size(); addEventListener('resize',size);
+  function water(){
+    t+=RM?0:.016;
+    g.clearRect(0,0,W,H);
+    var grad=g.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0,'rgba(15,163,177,.72)'); grad.addColorStop(.5,'rgba(6,122,138,.9)'); grad.addColorStop(1,'rgba(10,60,86,.98)');
+    g.fillStyle=grad; g.fillRect(0,0,W,H);
+    var cx=W/2, cw=W*.16;
+    for(var r=0;r<26;r++){
+      var y=(r/26)*H, wob=Math.sin(t*1.6+r*.55)*(6+r), len=cw*(1-r/34)+wob;
+      g.fillStyle='rgba(255,210,122,'+(.30-r*.009).toFixed(3)+')';
+      g.fillRect(cx-len/2,y,len,2.4);
+    }
+    for(var i=0;i<16;i++){
+      var yy=(i/16)*H+4, amp=2+i*.55, spd=.5+i*.06;
+      g.beginPath();
+      for(var x=0;x<=W;x+=12){var y2=yy+Math.sin((x*.012)+t*spd+i)*amp; x===0?g.moveTo(x,y2):g.lineTo(x,y2);}
+      g.strokeStyle='rgba(214,245,250,'+(.05+i*.012).toFixed(3)+')'; g.lineWidth=1.2; g.stroke();
+    }
+    g.fillStyle='rgba(246,227,192,.20)'; g.fillRect(0,0,W,2);
+    if(!RM&&run) requestAnimationFrame(water);
+  }
+  water();
+  document.addEventListener('visibilitychange',function(){run=!document.hidden; if(run&&!RM) water();});
+
+  /* mobile framing */
+  var palmSvg=document.querySelector('#palms svg'), pierSvg=document.querySelector('#pier svg');
+  function frame(){
+    var small=innerWidth<820;
+    palmSvg.setAttribute('viewBox', small?'0 150 560 560':'0 0 1200 700');
+    palmSvg.setAttribute('preserveAspectRatio', small?'xMinYMax meet':'xMidYMax slice');
+    pierSvg.setAttribute('viewBox', small?'790 20 400 180':'0 0 1200 200');
+    pierSvg.setAttribute('preserveAspectRatio', small?'xMaxYMax meet':'none');
+  }
+  frame(); addEventListener('resize',frame);
+
+  /* sway */
+  if(!RM){
+    var pl=document.getElementById('palmL'), pr=document.getElementById('palmR'), wh=document.getElementById('wheel'), a=0;
+    (function sway(){
+      a+=.012;
+      pl.style.transform='rotate('+(Math.sin(a)*1.5)+'deg)';
+      pr.style.transform='rotate('+(Math.sin(a+1.2)*-1.7)+'deg)';
+      wh.style.transform='rotate('+(a*12)+'deg)';
+      requestAnimationFrame(sway);
+    })();
+  }
+
+  /* reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+
+  /* card spotlight */
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+})();
+</script>
 </body>
 </html>
