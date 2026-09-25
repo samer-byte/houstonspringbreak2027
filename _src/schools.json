@@ -1,8 +1,39 @@
 {
  "_source": "Official Houston Spring Break 2027 School List, as written in the home page text (#school-list, HBCU + Texas paragraphs, 2026-09-22 read of the flyers). Week = the School List week. Do NOT add academic-calendar dates here.",
+ "_source_state": "School state (postal code) = the state of the school's main campus. Public, well-established fact; added 2026-09-25.",
+ "_source_parties": "Party descriptions condensed from OJ's own Eventbrite ticket-class descriptions (read 2026-09-25). No venue, time or host is stated because Eventbrite has none.",
  "eventbrite": "https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873",
  "groupme": "https://groupme.com/join_group/117252442/pLz9YWNs",
  "posh": "https://posh.vip/e/houston-spring-break-2027-2",
+ "profiles": {
+  "instagram": "https://www.instagram.com/houston_springbreak",
+  "eventbrite_organizer": "https://www.eventbrite.com/o/spring-break-33136709555",
+  "posh_group": "https://posh.vip/g/miami-spring-break-"
+ },
+ "states": {
+  "AL": "Alabama",
+  "DC": "Washington, D.C.",
+  "DE": "Delaware",
+  "FL": "Florida",
+  "GA": "Georgia",
+  "LA": "Louisiana",
+  "MD": "Maryland",
+  "MS": "Mississippi",
+  "NC": "North Carolina",
+  "SC": "South Carolina",
+  "TX": "Texas",
+  "VA": "Virginia"
+ },
+ "parties": {
+  "Booze Boat Party w/ Open Bar": "Boat party on the water with an open bar. A valid government ID is required at the dock. Boarding starts 20 minutes before departure, and the boat does not wait.",
+  "Pretty Nasty": "Late-night club event.",
+  "Brunch + Day Party": "Brunch and day party. Free entry with a ticket; food and drinks are sold at the venue.",
+  "Splash City HTX Pool Party": "Daytime pool party with DJs and a full bar.",
+  "Houston Gone Wild": "The Friday night main event.",
+  "Day Party": "Outdoor day party with DJs and a full bar.",
+  "Freaknik HTX": "The Saturday night main event.",
+  "March Madness": "Sunday day party with the games on."
+ },
  "weeks": {
   "1": {
    "label": "March 8 – 14",
@@ -241,7 +272,8 @@
     "B-CU",
     "BCU",
     "Bethune Cookman"
-   ]
+   ],
+   "state": "FL"
   },
   {
    "id": "claflin",
@@ -249,7 +281,8 @@
    "short": "Claflin",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "SC"
   },
   {
    "id": "cau",
@@ -259,7 +292,8 @@
    "hbcu": true,
    "aka": [
     "CAU"
-   ]
+   ],
+   "state": "GA"
   },
   {
    "id": "dsu",
@@ -270,7 +304,8 @@
    "aka": [
     "DSU",
     "Del State"
-   ]
+   ],
+   "state": "DE"
   },
   {
    "id": "uncfsu",
@@ -278,7 +313,8 @@
    "short": "Fayetteville State",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "NC"
   },
   {
    "id": "hampton",
@@ -286,7 +322,8 @@
    "short": "Hampton",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "VA"
   },
   {
    "id": "howard",
@@ -296,7 +333,8 @@
    "hbcu": true,
    "aka": [
     "HU"
-   ]
+   ],
+   "state": "DC"
   },
   {
    "id": "jsu",
@@ -306,7 +344,8 @@
    "hbcu": true,
    "aka": [
     "JSU"
-   ]
+   ],
+   "state": "MS"
   },
   {
    "id": "morehouse",
@@ -314,7 +353,8 @@
    "short": "Morehouse",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "GA"
   },
   {
    "id": "nccu",
@@ -325,7 +365,8 @@
    "aka": [
     "NCCU",
     "NC Central"
-   ]
+   ],
+   "state": "NC"
   },
   {
    "id": "southern",
@@ -338,7 +379,8 @@
     "SU",
     "Southern",
     "SUBR"
-   ]
+   ],
+   "state": "LA"
   },
   {
    "id": "spelman",
@@ -346,7 +388,8 @@
    "short": "Spelman",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "GA"
   },
   {
    "id": "tsu",
@@ -357,7 +400,8 @@
    "texas": true,
    "aka": [
     "TSU"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "tuskegee",
@@ -365,7 +409,8 @@
    "short": "Tuskegee",
    "week": 1,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "AL"
   },
   {
    "id": "vsu",
@@ -375,7 +420,8 @@
    "hbcu": true,
    "aka": [
     "VSU"
-   ]
+   ],
+   "state": "VA"
   },
   {
    "id": "wssu",
@@ -386,7 +432,8 @@
    "aka": [
     "WSSU",
     "Winston Salem State"
-   ]
+   ],
+   "state": "NC"
   },
   {
    "id": "aamu",
@@ -396,7 +443,8 @@
    "hbcu": true,
    "aka": [
     "AAMU"
-   ]
+   ],
+   "state": "AL"
   },
   {
    "id": "alasu",
@@ -406,7 +454,8 @@
    "hbcu": true,
    "aka": [
     "Bama State"
-   ]
+   ],
+   "state": "AL"
   },
   {
    "id": "bowie",
@@ -416,7 +465,8 @@
    "hbcu": true,
    "aka": [
     "BSU"
-   ]
+   ],
+   "state": "MD"
   },
   {
    "id": "coppin",
@@ -424,7 +474,8 @@
    "short": "Coppin State",
    "week": 2,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "MD"
   },
   {
    "id": "famu",
@@ -435,7 +486,8 @@
    "aka": [
     "FAMU",
     "Florida A&M"
-   ]
+   ],
+   "state": "FL"
   },
   {
    "id": "morgan",
@@ -443,7 +495,8 @@
    "short": "Morgan State",
    "week": 2,
    "hbcu": true,
-   "aka": []
+   "aka": [],
+   "state": "MD"
   },
   {
    "id": "pvamu",
@@ -456,7 +509,8 @@
     "PVAMU",
     "PV",
     "Prairie View"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "gram",
@@ -466,7 +520,8 @@
    "hbcu": true,
    "aka": [
     "Grambling"
-   ]
+   ],
+   "state": "LA"
   },
   {
    "id": "xula",
@@ -476,7 +531,8 @@
    "hbcu": true,
    "aka": [
     "XULA"
-   ]
+   ],
+   "state": "LA"
   },
   {
    "id": "baylor",
@@ -484,7 +540,8 @@
    "short": "Baylor",
    "week": 1,
    "texas": true,
-   "aka": []
+   "aka": [],
+   "state": "TX"
   },
   {
    "id": "lamar",
@@ -492,7 +549,8 @@
    "short": "Lamar",
    "week": 1,
    "texas": true,
-   "aka": []
+   "aka": [],
+   "state": "TX"
   },
   {
    "id": "unt",
@@ -503,7 +561,8 @@
    "aka": [
     "UNT",
     "North Texas"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "uta",
@@ -514,7 +573,8 @@
    "aka": [
     "UTA",
     "UT Arlington"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "utsa",
@@ -525,7 +585,8 @@
    "aka": [
     "UTSA",
     "UT San Antonio"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "uh",
@@ -537,7 +598,8 @@
     "UH",
     "U of H",
     "Houston"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "utaustin",
@@ -549,7 +611,8 @@
     "UT Austin",
     "UT",
     "Texas Longhorns"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "tamu",
@@ -561,7 +624,8 @@
     "TAMU",
     "A&M",
     "Aggies"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "rice",
@@ -569,7 +633,8 @@
    "short": "Rice",
    "week": 2,
    "texas": true,
-   "aka": []
+   "aka": [],
+   "state": "TX"
   },
   {
    "id": "tcu",
@@ -579,7 +644,8 @@
    "texas": true,
    "aka": [
     "TCU"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "smu",
@@ -589,7 +655,8 @@
    "texas": true,
    "aka": [
     "SMU"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "shsu",
@@ -600,7 +667,8 @@
    "aka": [
     "SHSU",
     "Sam Houston"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "txst",
@@ -610,7 +678,8 @@
    "texas": true,
    "aka": [
     "TXST"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "ttu",
@@ -620,7 +689,8 @@
    "texas": true,
    "aka": [
     "TTU"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "utd",
@@ -631,7 +701,8 @@
    "aka": [
     "UTD",
     "UT Dallas"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "utep",
@@ -642,7 +713,8 @@
    "aka": [
     "UTEP",
     "UT El Paso"
-   ]
+   ],
+   "state": "TX"
   },
   {
    "id": "utrgv",
@@ -653,7 +725,8 @@
    "aka": [
     "UTRGV",
     "UT Rio Grande Valley"
-   ]
+   ],
+   "state": "TX"
   }
  ]
 }
