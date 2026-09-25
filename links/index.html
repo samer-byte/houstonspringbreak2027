@@ -17,11 +17,13 @@
 <meta name="twitter:image" content="https://houstonspringbreak2027.com/img/school-list-2027.jpg">
 <meta name="theme-color" content="#140b26">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.className="js"</script>
 <style>
+@font-face{font-family:"Anton";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/anton-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/dmsans-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 img{max-width:100%;height:auto;display:block}
 :root{
   --sun:#FFD27A; --sun2:#FF9E5E; --rose:#F2677B; --plum:#8E3B8F; --night:#241243; --ink:#140B26;
@@ -141,7 +143,7 @@ footer a{color:var(--sun);text-decoration:underline}
 
 <div id="grain" aria-hidden="true"></div>
 
-<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873" aria-label="Tickets from $20"><svg viewBox="0 0 560 60" aria-hidden="true">
+<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=links_plane" aria-label="Tickets from $20"><svg viewBox="0 0 560 60" aria-hidden="true">
   <g fill="#150a24"><path d="M498 30 l-26 -12 -8 6 8 6 -34 0 -14 -12 -8 0 6 12 -6 12 8 0 14 -12 34 0 -8 6 8 6 26 -12z"/></g>
   <line x1="300" y1="30" x2="430" y2="30" stroke="#150a24" stroke-width="2"/>
   <rect x="20" y="12" width="280" height="36" rx="6" fill="#FFF6E8"/>
@@ -159,7 +161,7 @@ footer a{color:var(--sun);text-decoration:underline}
 
   <div class="sect">Start here</div>
   <div class="links">
-    <a class="link big c-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873">
+    <a class="link big c-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=links_tickets">
       <span class="ico" aria-hidden="true">🎟</span>
       <span class="txt"><span class="t">Tickets &amp; Party Packs</span>
       <span class="d">Week 1 · Week 2 · Week 3 — packs from $80, singles from $20</span></span>
@@ -177,8 +179,8 @@ footer a{color:var(--sun);text-decoration:underline}
   <div class="links">
     <a class="link c-rose" href="https://posh.vip/e/houston-spring-break-2027-2">
       <span class="ico" aria-hidden="true">🪩</span>
-      <span class="txt"><span class="t">Posh · free RSVP</span>
-      <span class="d">Same events, second platform — see who's going</span></span>
+      <span class="txt"><span class="t">Free RSVP on Posh</span>
+      <span class="d">Save your spot and see who's going</span></span>
       <span class="arw" aria-hidden="true">→</span>
     </a>
     <a class="link c-lime" href="https://laylo.com/houston_springbreak">
@@ -191,6 +193,12 @@ footer a{color:var(--sun);text-decoration:underline}
 
   <div class="sect">Plan your trip</div>
   <div class="links">
+    <a class="link c-sun" href="/schools/">
+      <span class="ico" aria-hidden="true">🎓</span>
+      <span class="txt"><span class="t">Find your school</span>
+      <span class="d">Your school's week, party dates and pack</span></span>
+      <span class="arw" aria-hidden="true">→</span>
+    </a>
     <a class="link c-plum" href="https://www.instagram.com/p/DdZQjhIlNzK/">
       <span class="ico" aria-hidden="true">🏝️</span>
       <span class="txt"><span class="t">2027 School List</span>
@@ -252,11 +260,13 @@ footer a{color:var(--sun);text-decoration:underline}
 <script>
 (function(){
   var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sea=document.getElementById('sea'), g=sea.getContext('2d'), W,H, DPR=Math.min(devicePixelRatio||1,2), t=0, run=true;
-  function size(){var b=sea.getBoundingClientRect(); W=b.width; H=b.height; sea.width=W*DPR; sea.height=H*DPR; g.setTransform(DPR,0,0,DPR,0,0);}
-  size(); addEventListener('resize',size);
+  var sea=document.getElementById('sea'), g=sea.getContext('2d'), W=0,H=0, DPR=1, t=0;
+  function size(){
+    var b=sea.getBoundingClientRect(), d=innerWidth<820?1:Math.min(devicePixelRatio||1,2);
+    if(b.width===W&&b.height===H&&d===DPR) return;
+    W=b.width; H=b.height; DPR=d; sea.width=Math.round(W*DPR); sea.height=Math.round(H*DPR); g.setTransform(DPR,0,0,DPR,0,0); water();
+  }
   function water(){
-    t+=RM?0:.016;
     g.clearRect(0,0,W,H);
     var grad=g.createLinearGradient(0,0,0,H);
     grad.addColorStop(0,'rgba(15,163,177,.72)'); grad.addColorStop(.5,'rgba(6,122,138,.9)'); grad.addColorStop(1,'rgba(10,60,86,.98)');
@@ -274,22 +284,27 @@ footer a{color:var(--sun);text-decoration:underline}
       g.strokeStyle='rgba(214,245,250,'+(.05+i*.012).toFixed(3)+')'; g.lineWidth=1.2; g.stroke();
     }
     g.fillStyle='rgba(246,227,192,.2)'; g.fillRect(0,0,W,2);
-    if(!RM&&run) requestAnimationFrame(water);
   }
-  water();
-  document.addEventListener('visibilitychange',function(){run=!document.hidden; if(run&&!RM) water();});
 
-  var palmSvg=document.getElementById('palmSvg');
+  var palmSvg=document.getElementById('palmSvg'), frameW=0;
   function frame(){
+    if(innerWidth===frameW) return; frameW=innerWidth;
     var wide=innerWidth>=820;
     palmSvg.setAttribute('viewBox', wide?'0 120 700 580':'0 150 560 560');
   }
-  frame(); addEventListener('resize',frame);
+  frame(); size(); addEventListener('resize',function(){frame(); size();});
 
-  if(!RM){
-    var pl=document.getElementById('palmL'), a=0;
-    (function sway(){a+=.012; pl.style.transform='rotate('+(Math.sin(a)*1.5)+'deg)'; requestAnimationFrame(sway);})();
+  /* one loop (water + palm sway), asleep while the tab is hidden */
+  var pl=document.getElementById('palmL'), a=0, looping=false, last=0;
+  function loop(now){
+    if(RM||document.hidden){looping=false; return;}
+    var dt=last?Math.min(3,(now-last)/16.667):1; last=now;
+    t+=.016*dt; a+=.012*dt;
+    water(); pl.style.transform='rotate('+(Math.sin(a)*1.5)+'deg)';
+    requestAnimationFrame(loop);
   }
+  function wake(){if(!looping&&!RM&&!document.hidden){looping=true; last=0; requestAnimationFrame(loop);}}
+  document.addEventListener('visibilitychange',wake); wake();
 
   document.querySelectorAll('.link').forEach(function(c){
     c.addEventListener('pointermove',function(e){

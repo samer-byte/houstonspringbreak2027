@@ -1,0 +1,659 @@
+{
+ "_source": "Official Houston Spring Break 2027 School List, as written in the home page text (#school-list, HBCU + Texas paragraphs, 2026-09-22 read of the flyers). Week = the School List week. Do NOT add academic-calendar dates here.",
+ "eventbrite": "https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873",
+ "groupme": "https://groupme.com/join_group/117252442/pLz9YWNs",
+ "posh": "https://posh.vip/e/houston-spring-break-2027-2",
+ "weeks": {
+  "1": {
+   "label": "March 8 – 14",
+   "nights": "Thursday, March 11 to Sunday, March 14",
+   "nightsShort": "Thu Mar 11 – Sun Mar 14",
+   "pack": 80,
+   "separately": 225,
+   "note": "The opening week.",
+   "days": [
+    [
+     "Thursday, March 11",
+     [
+      [
+       "Booze Boat Party w/ Open Bar",
+       true,
+       "$80"
+      ],
+      [
+       "Pretty Nasty",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Friday, March 12",
+     [
+      [
+       "Brunch + Day Party",
+       true,
+       "Free"
+      ],
+      [
+       "Splash City HTX Pool Party",
+       false,
+       "$20"
+      ],
+      [
+       "Houston Gone Wild",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Saturday, March 13",
+     [
+      [
+       "Day Party",
+       false,
+       "$25"
+      ],
+      [
+       "Freaknik HTX",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Sunday, March 14",
+     [
+      [
+       "Day Party",
+       true,
+       "$20"
+      ],
+      [
+       "March Madness",
+       true,
+       "$20"
+      ]
+     ]
+    ]
+   ]
+  },
+  "2": {
+   "label": "March 15 – 21",
+   "nights": "Thursday, March 18 to Sunday, March 21",
+   "nightsShort": "Thu Mar 18 – Sun Mar 21",
+   "pack": 150,
+   "separately": 285,
+   "note": "The biggest week.",
+   "days": [
+    [
+     "Thursday, March 18",
+     [
+      [
+       "Booze Boat Party w/ Open Bar",
+       true,
+       "$80"
+      ],
+      [
+       "Pretty Nasty",
+       false,
+       "$30"
+      ]
+     ]
+    ],
+    [
+     "Friday, March 19",
+     [
+      [
+       "Brunch + Day Party",
+       true,
+       "Free"
+      ],
+      [
+       "Splash City HTX Pool Party",
+       false,
+       "$30"
+      ],
+      [
+       "Houston Gone Wild",
+       false,
+       "$30"
+      ]
+     ]
+    ],
+    [
+     "Saturday, March 20",
+     [
+      [
+       "Day Party",
+       false,
+       "$25"
+      ],
+      [
+       "Freaknik HTX",
+       false,
+       "$30"
+      ]
+     ]
+    ],
+    [
+     "Sunday, March 21",
+     [
+      [
+       "Day Party",
+       true,
+       "$30"
+      ],
+      [
+       "March Madness",
+       true,
+       "$30"
+      ]
+     ]
+    ]
+   ]
+  },
+  "3": {
+   "label": "March 22 – 28",
+   "nights": "Thursday, March 25 to Sunday, March 28",
+   "nightsShort": "Thu Mar 25 – Sun Mar 28",
+   "pack": 80,
+   "separately": 225,
+   "note": "The closing week.",
+   "days": [
+    [
+     "Thursday, March 25",
+     [
+      [
+       "Booze Boat Party w/ Open Bar",
+       true,
+       "$80"
+      ],
+      [
+       "Pretty Nasty",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Friday, March 26",
+     [
+      [
+       "Brunch + Day Party",
+       true,
+       "Free"
+      ],
+      [
+       "Splash City HTX Pool Party",
+       false,
+       "$20"
+      ],
+      [
+       "Houston Gone Wild",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Saturday, March 27",
+     [
+      [
+       "Day Party",
+       false,
+       "$25"
+      ],
+      [
+       "Freaknik HTX",
+       false,
+       "$20"
+      ]
+     ]
+    ],
+    [
+     "Sunday, March 28",
+     [
+      [
+       "Day Party",
+       true,
+       "$20"
+      ],
+      [
+       "March Madness",
+       true,
+       "$20"
+      ]
+     ]
+    ]
+   ]
+  }
+ },
+ "schools": [
+  {
+   "id": "bcu",
+   "name": "Bethune-Cookman University",
+   "short": "Bethune-Cookman",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "B-CU",
+    "BCU",
+    "Bethune Cookman"
+   ]
+  },
+  {
+   "id": "claflin",
+   "name": "Claflin University",
+   "short": "Claflin",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "cau",
+   "name": "Clark Atlanta University",
+   "short": "Clark Atlanta",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "CAU"
+   ]
+  },
+  {
+   "id": "dsu",
+   "name": "Delaware State University",
+   "short": "Delaware State",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "DSU",
+    "Del State"
+   ]
+  },
+  {
+   "id": "uncfsu",
+   "name": "Fayetteville State University",
+   "short": "Fayetteville State",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "hampton",
+   "name": "Hampton University",
+   "short": "Hampton",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "howard",
+   "name": "Howard University",
+   "short": "Howard",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "HU"
+   ]
+  },
+  {
+   "id": "jsu",
+   "name": "Jackson State University",
+   "short": "Jackson State",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "JSU"
+   ]
+  },
+  {
+   "id": "morehouse",
+   "name": "Morehouse College",
+   "short": "Morehouse",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "nccu",
+   "name": "North Carolina Central University",
+   "short": "NC Central",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "NCCU",
+    "NC Central"
+   ]
+  },
+  {
+   "id": "southern",
+   "name": "Southern University and A&M College",
+   "short": "Southern University",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "Southern University A&M",
+    "SU",
+    "Southern",
+    "SUBR"
+   ]
+  },
+  {
+   "id": "spelman",
+   "name": "Spelman College",
+   "short": "Spelman",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "tsu",
+   "name": "Texas Southern University",
+   "short": "Texas Southern",
+   "week": 1,
+   "hbcu": true,
+   "texas": true,
+   "aka": [
+    "TSU"
+   ]
+  },
+  {
+   "id": "tuskegee",
+   "name": "Tuskegee University",
+   "short": "Tuskegee",
+   "week": 1,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "vsu",
+   "name": "Virginia State University",
+   "short": "Virginia State",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "VSU"
+   ]
+  },
+  {
+   "id": "wssu",
+   "name": "Winston-Salem State University",
+   "short": "Winston-Salem State",
+   "week": 1,
+   "hbcu": true,
+   "aka": [
+    "WSSU",
+    "Winston Salem State"
+   ]
+  },
+  {
+   "id": "aamu",
+   "name": "Alabama A&M University",
+   "short": "Alabama A&M",
+   "week": 2,
+   "hbcu": true,
+   "aka": [
+    "AAMU"
+   ]
+  },
+  {
+   "id": "alasu",
+   "name": "Alabama State University",
+   "short": "Alabama State",
+   "week": 2,
+   "hbcu": true,
+   "aka": [
+    "Bama State"
+   ]
+  },
+  {
+   "id": "bowie",
+   "name": "Bowie State University",
+   "short": "Bowie State",
+   "week": 2,
+   "hbcu": true,
+   "aka": [
+    "BSU"
+   ]
+  },
+  {
+   "id": "coppin",
+   "name": "Coppin State University",
+   "short": "Coppin State",
+   "week": 2,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "famu",
+   "name": "Florida A&M University",
+   "short": "FAMU",
+   "week": 2,
+   "hbcu": true,
+   "aka": [
+    "FAMU",
+    "Florida A&M"
+   ]
+  },
+  {
+   "id": "morgan",
+   "name": "Morgan State University",
+   "short": "Morgan State",
+   "week": 2,
+   "hbcu": true,
+   "aka": []
+  },
+  {
+   "id": "pvamu",
+   "name": "Prairie View A&M University",
+   "short": "Prairie View A&M",
+   "week": 2,
+   "hbcu": true,
+   "texas": true,
+   "aka": [
+    "PVAMU",
+    "PV",
+    "Prairie View"
+   ]
+  },
+  {
+   "id": "gram",
+   "name": "Grambling State University",
+   "short": "Grambling State",
+   "week": 3,
+   "hbcu": true,
+   "aka": [
+    "Grambling"
+   ]
+  },
+  {
+   "id": "xula",
+   "name": "Xavier University of Louisiana",
+   "short": "Xavier (Louisiana)",
+   "week": 3,
+   "hbcu": true,
+   "aka": [
+    "XULA"
+   ]
+  },
+  {
+   "id": "baylor",
+   "name": "Baylor University",
+   "short": "Baylor",
+   "week": 1,
+   "texas": true,
+   "aka": []
+  },
+  {
+   "id": "lamar",
+   "name": "Lamar University",
+   "short": "Lamar",
+   "week": 1,
+   "texas": true,
+   "aka": []
+  },
+  {
+   "id": "unt",
+   "name": "University of North Texas",
+   "short": "UNT",
+   "week": 1,
+   "texas": true,
+   "aka": [
+    "UNT",
+    "North Texas"
+   ]
+  },
+  {
+   "id": "uta",
+   "name": "University of Texas at Arlington",
+   "short": "UT Arlington",
+   "week": 1,
+   "texas": true,
+   "aka": [
+    "UTA",
+    "UT Arlington"
+   ]
+  },
+  {
+   "id": "utsa",
+   "name": "University of Texas at San Antonio",
+   "short": "UTSA",
+   "week": 1,
+   "texas": true,
+   "aka": [
+    "UTSA",
+    "UT San Antonio"
+   ]
+  },
+  {
+   "id": "uh",
+   "name": "University of Houston",
+   "short": "UH",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "UH",
+    "U of H",
+    "Houston"
+   ]
+  },
+  {
+   "id": "utaustin",
+   "name": "University of Texas at Austin",
+   "short": "UT Austin",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "UT Austin",
+    "UT",
+    "Texas Longhorns"
+   ]
+  },
+  {
+   "id": "tamu",
+   "name": "Texas A&M University",
+   "short": "Texas A&M",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "TAMU",
+    "A&M",
+    "Aggies"
+   ]
+  },
+  {
+   "id": "rice",
+   "name": "Rice University",
+   "short": "Rice",
+   "week": 2,
+   "texas": true,
+   "aka": []
+  },
+  {
+   "id": "tcu",
+   "name": "Texas Christian University",
+   "short": "TCU",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "TCU"
+   ]
+  },
+  {
+   "id": "smu",
+   "name": "Southern Methodist University",
+   "short": "SMU",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "SMU"
+   ]
+  },
+  {
+   "id": "shsu",
+   "name": "Sam Houston State University",
+   "short": "Sam Houston State",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "SHSU",
+    "Sam Houston"
+   ]
+  },
+  {
+   "id": "txst",
+   "name": "Texas State University",
+   "short": "Texas State",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "TXST"
+   ]
+  },
+  {
+   "id": "ttu",
+   "name": "Texas Tech University",
+   "short": "Texas Tech",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "TTU"
+   ]
+  },
+  {
+   "id": "utd",
+   "name": "University of Texas at Dallas",
+   "short": "UT Dallas",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "UTD",
+    "UT Dallas"
+   ]
+  },
+  {
+   "id": "utep",
+   "name": "University of Texas at El Paso",
+   "short": "UTEP",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "UTEP",
+    "UT El Paso"
+   ]
+  },
+  {
+   "id": "utrgv",
+   "name": "University of Texas Rio Grande Valley",
+   "short": "UTRGV",
+   "week": 2,
+   "texas": true,
+   "aka": [
+    "UTRGV",
+    "UT Rio Grande Valley"
+   ]
+  }
+ ]
+}
