@@ -374,8 +374,9 @@ img{max-width:100%;display:block}
 .layer svg,.layer canvas{width:100%;height:100%;display:block}
 #grain{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.055;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-#plane{position:fixed;top:15vh;left:0;z-index:9;width:min(62vw,560px);animation:fly 24s linear infinite;will-change:transform}
+#plane{position:fixed;top:15vh;left:0;z-index:12;width:min(62vw,560px);animation:fly 24s linear infinite;will-change:transform}
 @keyframes fly{0%{transform:translateX(-72vw)}100%{transform:translateX(132vw)}}
+#plane{display:block}#plane svg{display:block;width:100%;height:auto}
 #plane text{font-family:var(--body);font-weight:700;font-size:13px;fill:var(--ink);letter-spacing:.06em}
 
 /* ---------- top bar ---------- */
@@ -656,12 +657,12 @@ footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);
 
 <div id="grain" aria-hidden="true"></div>
 
-<svg id="plane" viewBox="0 0 560 60" role="img" aria-label="Tickets from $20">
+<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-tickets-1998827838873" aria-label="Tickets from $20"><svg viewBox="0 0 560 60" aria-hidden="true">
   <g fill="#150a24"><path d="M498 30 l-26 -12 -8 6 8 6 -34 0 -14 -12 -8 0 6 12 -6 12 8 0 14 -12 34 0 -8 6 8 6 26 -12z"/></g>
   <line x1="300" y1="30" x2="430" y2="30" stroke="#150a24" stroke-width="2"/>
   <rect x="20" y="12" width="280" height="36" rx="6" fill="#FFF6E8"/>
   <text x="160" y="35" text-anchor="middle">TICKETS FROM $20 →</text>
-</svg>
+</svg></a>
 
 <header class="bar" id="bar">
   <a class="mark" href="#top">Houston <span>Spring Break 27</span></a>
