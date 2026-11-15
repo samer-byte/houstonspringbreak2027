@@ -7,9 +7,13 @@
 <meta name="description" content="Houston Spring Break 2027 is March 10–28: mansion, pool, yacht and day parties for college students from 200+ schools. Party Packs from $80, singles from $20.">
 <link rel="canonical" href="https://houstonspringbreak2027.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
+<!-- Security policy as meta tags (GitHub Pages cannot send headers). Self-hosted only: adding any outside script, font or analytics tag means adding its host here first. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- Google Search Console: HTML-file verification (google*.html at the site root) is added by the search-console agent. If meta-tag verification is used instead, place it on the next line. -->
 <!-- GSC-VERIFICATION-META -->
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Houston Spring Break 2027">
 <meta property="og:title" content="Houston Spring Break 2027 | College Parties March 10–28">
 <meta property="og:description" content="March 10–28, 2027 in Houston, TX. Mansion, pool, yacht and day parties for college students from 200+ schools. Party Packs from $80. Find your school on the official 2027 School List.">
@@ -1660,6 +1664,7 @@ img{max-width:100%;height:auto;display:block}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:8px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--sun);color:var(--ink);padding:12px 18px;border-radius:10px;z-index:120;font-weight:700}
 .skip:focus{left:8px}
+#main:focus{outline:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- the sunset ---------- */
@@ -1685,9 +1690,9 @@ img{max-width:100%;height:auto;display:block}
 /* ---------- top bar ---------- */
 .bar{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:10px var(--pad);background:rgba(20,11,38,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,246,232,.14);transform:translateY(-110%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.bar.show{transform:none}
-.bar .mark{font-family:var(--display);letter-spacing:.06em;font-size:19px;text-transform:uppercase}
+  border-bottom:1px solid rgba(255,246,232,.14);transform:translateY(-110%);visibility:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s linear .4s}
+.bar.show{transform:none;visibility:visible;transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.bar .mark{font-family:var(--display);letter-spacing:.06em;font-size:19px;text-transform:uppercase;display:inline-block;padding:11px 0}
 .bar .mark span{color:var(--sun)}
 .bar-cta{display:flex;gap:8px}
 .bar .btn{min-height:44px;font-size:14px;padding:0 16px}
@@ -1860,6 +1865,11 @@ h1 .sb{display:block;font-size:.3em;letter-spacing:.13em;color:var(--sun);text-s
 .fr-more{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--sun);text-decoration:underline}
 .fr-none{font-size:14.5px;margin-top:10px;background:rgba(20,11,38,.86);border-radius:14px;padding:12px 16px}
 .fr-none a{color:var(--sun);text-decoration:underline}
+.fr-wks{list-style:none;display:grid;gap:8px;margin-top:10px;padding:0}
+.fr-wks .fr{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:12px 16px}
+.fr-wks .fr-w{margin:0}
+.fr-wl{display:inline-block;padding:10px 0;text-decoration:underline}
+.fr-wks .btn{min-height:48px;font-size:15px;padding:0 18px}
 
 /* gallery */
 .gallery{columns:4;column-gap:12px;margin-top:30px}
@@ -1886,8 +1896,8 @@ h1 .sb{display:block;font-size:.3em;letter-spacing:.13em;color:var(--sun);text-s
 footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);padding:44px 0 60px;font-size:14.5px}
 .foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
 .foot-grid h3{font-family:var(--display);text-transform:uppercase;font-size:15px;letter-spacing:.1em;color:var(--sun);margin-bottom:10px;font-weight:400}
-.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:4px}
-.foot-grid a{display:inline-flex;align-items:center;min-height:40px}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:0}
+.foot-grid a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
 .foot-grid a:hover{color:var(--sun)}
 .foot-base{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,246,232,.14);opacity:.8;font-size:13.5px}
 
@@ -1996,7 +2006,7 @@ footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);
 
 <div id="grain" aria-hidden="true"></div>
 
-<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_plane" aria-label="Tickets from $20"><svg viewBox="0 0 560 60" aria-hidden="true">
+<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_plane" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 560 60" aria-hidden="true">
   <g fill="#150a24"><path d="M498 30 l-26 -12 -8 6 8 6 -34 0 -14 -12 -8 0 6 12 -6 12 8 0 14 -12 34 0 -8 6 8 6 26 -12z"/></g>
   <line x1="300" y1="30" x2="430" y2="30" stroke="#150a24" stroke-width="2"/>
   <rect x="20" y="12" width="280" height="36" rx="6" fill="#FFF6E8"/>
@@ -2043,7 +2053,7 @@ footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);
   <span>Mansion Parties</span><span>Pool Parties</span><span>Yacht Parties</span><span>Club Events</span><span>Day Parties</span><span>Tickets On Sale Now</span>
 </div></div>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
 <!-- ===== AT A GLANCE ===== -->
 <section class="glance-sec" id="at-a-glance" aria-labelledby="glance-h">
@@ -2241,7 +2251,7 @@ footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);
 
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
+    <nav class="foot-grid" aria-label="Site">
       <div>
         <h3>Tickets</h3>
         <ul>
@@ -2279,7 +2289,7 @@ footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.86);
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfH8fZnz-f1kkymh4f1pd3ePY2I0Cx9uKfkYNbG9rkT7QltNA/viewform">Join the promo team</a></li>
         </ul>
       </div>
-    </div>
+    </nav>
     <p class="foot-base">Presented by <a href="https://www.instagram.com/houston_springbreak">@houston_springbreak</a> · Hosted by <a href="https://www.instagram.com/ojlajuice">@ojlajuice</a><br>
     Houston Spring Break 2027 · Houston, TX</p>
   </div>

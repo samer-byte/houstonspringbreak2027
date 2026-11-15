@@ -49,17 +49,34 @@
       '<a class="fr-more" href="/schools/' + s.s + '/">' + esc(s.k) + ' page</a></div></div>';
   }
 
+  // No match: answer with the three weeks (all facts come from /schools/schools.json), never a dead end.
+  function weeks() {
+    return '<ul class="fr-wks">' + Object.keys(data.weeks).sort().map(function (k) {
+      var w = data.weeks[k];
+      return '<li class="fr"><p class="fr-w"><a class="fr-wl" href="/week-' + k + '/"><b>Week ' + k + '</b> · spring break ' + esc(w.label) + '</a><br>Parties ' + esc(w.nightsShort) + '</p>' +
+        '<a class="btn btn-sun" href="' + data.eventbrite + '?aff=site_finder_miss_w' + k + '">Week ' + k + ' Pack · $' + w.pack + '</a></li>';
+    }).join('') + '</ul>';
+  }
+
   forms.forEach(function (form) {
     var input = form.querySelector('input'), out = form.querySelector('[data-finder-out]'), status = form.querySelector('[data-finder-status]');
     var list = form.getAttribute('data-finder-list') || '/#school-list';
+    if (out.id) input.setAttribute('aria-controls', out.id);   // results region is tied to the field for screen readers
+    var timer = 0;
+    function announce(t) {                       // one polite message after typing pauses, not one per keystroke
+      if (!status) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () { status.textContent = t; }, 450);
+    }
     function render() {
       var q = input.value;
       if (!data) { load().then(function (d) { if (d) render(); }); return; }
-      if (norm(q).length < 2) { out.innerHTML = ''; if (status) status.textContent = ''; return; }
+      if (norm(q).length < 2) { out.innerHTML = ''; announce(''); return; }
       var r = search(q);
       out.innerHTML = r.length ? '<div class="fr-list">' + r.map(card).join('') + '</div><p class="fr-none">Not your school? This search covers the HBCUs and Texas schools on the list. <a href="' + list + '">See the official flyers</a> for all 200+ schools.</p>' :
-        '<p class="fr-none">No school page for “' + esc(q) + '” yet. This search covers the HBCUs and Texas schools on the list. Check the <a href="' + list + '">official flyers</a> for all 200+ schools, or come the week that matches your spring break.</p>';
-      if (status) status.textContent = r.length ? r.length + (r.length > 1 ? ' matches: ' : ' match: ') + r.map(function (s) { return s.n + ', Week ' + s.w; }).join('; ') : 'No school page found';
+        '<p class="fr-none">No school page for “' + esc(q) + '” yet. This search covers the HBCUs and Texas schools on the list; the <a href="' + list + '">official flyers</a> show all 200+ schools. Each week matches a spring break, so pick yours:</p>' + weeks();
+      announce(r.length ? r.length + (r.length > 1 ? ' matches: ' : ' match: ') + r.map(function (s) { return s.n + ', Week ' + s.w; }).join('; ') :
+        'No school page for ' + q + '. Showing the three weeks: pick the one that matches your spring break.');
     }
     input.addEventListener('focus', load, { once: true });
     input.addEventListener('input', render);

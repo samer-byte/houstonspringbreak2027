@@ -20,6 +20,7 @@ img,svg{max-width:100%;height:auto;display:block}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:8px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--sun);color:var(--ink);padding:12px 18px;border-radius:10px;z-index:120;font-weight:700}
 .skip:focus{left:8px}
+#main:focus{outline:none}
 
 /* ---------- static sunset scene ---------- */
 .scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
@@ -44,7 +45,7 @@ img,svg{max-width:100%;height:auto;display:block}
 /* ---------- top bar (always visible here) ---------- */
 .bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:10px var(--pad);background:rgba(20,11,38,.9);border-bottom:1px solid rgba(255,246,232,.14)}
-.bar .mark{font-family:var(--display);letter-spacing:.06em;font-size:19px;text-transform:uppercase;white-space:nowrap}
+.bar .mark{font-family:var(--display);letter-spacing:.06em;font-size:19px;text-transform:uppercase;white-space:nowrap;display:inline-block;padding:11px 0}
 .bar .mark span{color:var(--sun)}
 .bar-cta{display:flex;gap:8px}
 .bar .btn{min-height:44px;font-size:14px;padding:0 16px}
@@ -85,7 +86,7 @@ h3{letter-spacing:.04em}
 .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
 .crumbs li{display:inline-flex;align-items:center;min-height:44px}
 .crumbs li+li::before{content:"›";margin-right:6px;opacity:.7}
-.crumbs a{display:inline-flex;align-items:center;min-height:44px}
+.crumbs a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
 .head{padding-top:18px}
 .head h1{line-height:.9;font-size:clamp(44px,8vw,104px);text-shadow:0 8px 40px rgba(20,11,38,.45)}
 .head h1 .h1-sub{display:block;font-size:.36em;letter-spacing:.1em;color:var(--sun);margin-top:.3em}
@@ -146,6 +147,11 @@ h3{letter-spacing:.04em}
 .fr-more{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--sun);text-decoration:underline}
 .fr-none{font-size:14.5px;margin-top:10px}
 .fr-none a{color:var(--sun);text-decoration:underline}
+.fr-wks{list-style:none;display:grid;gap:8px;margin-top:10px;padding:0}
+.fr-wks .fr{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:12px 16px}
+.fr-wks .fr-w{margin:0}
+.fr-wl{display:inline-block;padding:10px 0;text-decoration:underline}
+.fr-wks .btn{min-height:48px;font-size:15px;padding:0 18px}
 
 /* ---------- faq ---------- */
 .faq-list{max-width:820px;margin-top:22px}
@@ -161,7 +167,7 @@ h3{letter-spacing:.04em}
 /* ---------- footer ---------- */
 footer{border-top:1px solid rgba(255,246,232,.18);background:rgba(20,11,38,.92);padding:40px 0 56px;font-size:14.5px}
 .foot-links{list-style:none;display:flex;flex-wrap:wrap;gap:4px 22px}
-.foot-links a{display:inline-flex;align-items:center;min-height:44px}
+.foot-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
 .foot-links a:hover{color:var(--sun)}
 .foot-base{margin-top:18px;opacity:.8;font-size:13.5px}
 

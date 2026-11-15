@@ -7,6 +7,9 @@
 <meta name="description" content="Every Houston Spring Break 2027 link in one place — tickets, the official GroupMe, drop alerts, promo team applications and sections.">
 <link rel="canonical" href="https://houstonspringbreak2027.com/links/">
 <meta name="robots" content="index,follow">
+<!-- Security policy as meta tags (GitHub Pages cannot send headers). Self-hosted only: adding any outside script, font or analytics tag means adding its host here first. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Houston Spring Break 2027">
 <meta property="og:title" content="Houston Spring Break 2027 — Links">
@@ -90,6 +93,9 @@ h1 span{display:block;color:var(--sun)}
 
 footer{margin-top:34px;text-align:center;font-size:13px;opacity:.85;line-height:1.7}
 footer a{color:var(--sun);text-decoration:underline}
+@media (max-width:820px){
+  #plane{display:none}   /* phones: same rule as home (audit 11/14): the fixed banner crossed the link cards */
+}
 @media (max-width:620px){
   #plane{top:2vh;width:86vw}
   header{padding-top:16px}
@@ -143,14 +149,14 @@ footer a{color:var(--sun);text-decoration:underline}
 
 <div id="grain" aria-hidden="true"></div>
 
-<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=links_plane" aria-label="Tickets from $20"><svg viewBox="0 0 560 60" aria-hidden="true">
+<a id="plane" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=links_plane" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 560 60" aria-hidden="true">
   <g fill="#150a24"><path d="M498 30 l-26 -12 -8 6 8 6 -34 0 -14 -12 -8 0 6 12 -6 12 8 0 14 -12 34 0 -8 6 8 6 26 -12z"/></g>
   <line x1="300" y1="30" x2="430" y2="30" stroke="#150a24" stroke-width="2"/>
   <rect x="20" y="12" width="280" height="36" rx="6" fill="#FFF6E8"/>
   <text x="160" y="35" text-anchor="middle">TICKETS FROM $20 →</text>
 </svg></a>
 
-<div class="wrap">
+<main class="wrap" id="main">
 
   <header>
     <a class="badge" href="/">Official site · home</a>
@@ -267,7 +273,7 @@ footer a{color:var(--sun);text-decoration:underline}
     <a href="/">houstonspringbreak2027.com</a>
   </footer>
 
-</div>
+</main>
 
 <script>
 (function(){

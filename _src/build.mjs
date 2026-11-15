@@ -137,7 +137,7 @@ const crumbsLd = (url, items) => ({ '@type': 'BreadcrumbList', '@id': `${url}#br
 const faqLd = (id, qs) => ({ '@type': 'FAQPage', '@id': id, mainEntity: qs.map(([q, a]) => ({ '@type': 'Question', name: q,
   acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"') } })) });
 
-const head = ({ title, desc, canonical, jsonld, image = `${SITE}/img/school-list-2027.jpg` }) => `<!doctype html>
+const head = ({ title, desc, canonical, jsonld, image = `${SITE}/img/school-list-2027.jpg`, imageAlt = 'Official Houston Spring Break 2027 School List flyer' }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -146,7 +146,11 @@ const head = ({ title, desc, canonical, jsonld, image = `${SITE}/img/school-list
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canonical}">
 <meta name="robots" content="index,follow,max-image-preview:large">
+<!-- Security policy as meta tags (GitHub Pages cannot send headers). Self-hosted only: adding any outside script, font or analytics tag means adding its host here first. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Houston Spring Break 2027">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
@@ -154,7 +158,12 @@ const head = ({ title, desc, canonical, jsonld, image = `${SITE}/img/school-list
 <meta property="og:image" content="${image}">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="1236">
+<meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${image}">
+<meta name="twitter:image:alt" content="${esc(imageAlt)}">
 <meta name="theme-color" content="#140b26">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
 <link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -174,6 +183,7 @@ const bar = aff => `<header class="bar">
 
 const footer = `<footer>
   <div class="wrap">
+    <nav aria-label="Site">
     <ul class="foot-links">
       <li><a href="/">Houston Spring Break 2027</a></li>
       <li><a href="${GUIDE}">Houston spring break guide</a></li>
@@ -186,6 +196,7 @@ const footer = `<footer>
       <li><a href="/links/">All links</a></li>
       <li><a href="${P.instagram}">Instagram</a></li>
     </ul>
+    </nav>
     <p class="foot-base">Presented by @houston_springbreak · Houston Spring Break 2027 · Houston, TX<br>An independent event. Not affiliated with or endorsed by any college or university.</p>
   </div>
 </footer>`;
@@ -227,7 +238,7 @@ const page = ({ title, desc, canonical, jsonld, aff, body, scripts = '' }) => `$
 <a class="skip" href="#main">Skip to content</a>
 ${SCENE}
 ${bar(aff)}
-<main id="main">
+<main id="main" tabindex="-1">
 ${body}
 </main>
 ${footer}
@@ -658,6 +669,35 @@ writeFileSync(path.join(ROOT, 'schools', 'schools.json'), JSON.stringify(pub));
 const homePath = path.join(ROOT, 'index.html');
 writeFileSync(homePath, homeRegions(readFileSync(homePath, 'utf8')));
 
+// ---------- llms.txt: plain-text summary for AI assistants, built from the same checked data ----------
+const wkLine = w => { const W = D.weeks[w]; return `- Week ${w}: ${W.label}, 2027. Parties ${W.nights}. Week ${w} Party Pack $${W.pack} before fees (about $${W.separately} bought separately); singles $${W.singlesFrom}–$${W.singlesTo}. ${W.note}`; };
+const llms = `# Houston Spring Break 2027
+
+> Houston Spring Break 2027 is an independent series of college parties in Houston, Texas, March 10–28, 2027, run as three weeks with party nights Thursday to Sunday of each week. Tickets and Party Packs are sold on Eventbrite. It is not affiliated with or endorsed by any college or university.
+
+## Key facts
+${WEEKS.map(wkLine).join('\n')}
+- What a Party Pack is: one ticket for every event in one week. The same nights run every week: ${D.weeks['1'].days.map(([day, items]) => `${day.split(',')[0]}: ${listAnd([...items].sort((a, b) => b[1] - a[1]).map(([n, adult]) => n + (adult ? ' (21+)' : '')))}`).join('; ')}. Prices are before Eventbrite fees.
+- Ages: 21+ events are the ${listAnd(ADULT_NAMES)}, every week, with a valid government ID. Everything else is 18+.
+- Where: Houston, TX. Venue addresses are announced the week of each event and sent to ticket holders and the official GroupMe.
+- Refunds: available up to ${REFUND_DAYS} days before the event, under the refund policy on the Eventbrite listing.
+- Schools: the official 2027 School List puts 200+ schools on the week that matches their spring break. ${HBCU_N} HBCUs and ${TX_N} Texas schools on the list have their own page here.
+
+## Pages
+- [Home](${SITE}/): dates, Party Packs, lineup, school list flyers, FAQ
+- [Houston spring break guide](${SITE}${GUIDE}): weeks, packs, 21+ rules, addresses, refunds, picking a week
+${WEEKS.map(w => `- [Week ${w}](${SITE}/week-${w}/): ${D.weeks[w].label} lineup, pack and schools`).join('\n')}
+- [Find your school](${SITE}/schools/): school pages by week
+- [All links](${SITE}/links/)
+
+## Official links
+- Tickets and Party Packs (Eventbrite): ${EB}
+- Free RSVP (Posh): ${POSH}
+- Official GroupMe: ${GM}
+- Instagram: ${P.instagram}
+`;
+writeFileSync(path.join(ROOT, 'llms.txt'), llms);
+
 // ---------- sitemap with real lastmod (content hash; the date moves only when a page's HTML changes) ----------
 const LM_PATH = path.join(ROOT, '_src/lastmod.json');
 const LM = existsSync(LM_PATH) ? JSON.parse(readFileSync(LM_PATH, 'utf8')) : {};
@@ -676,5 +716,5 @@ writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF
 ${urls.map(([l, p]) => u(l, p, l === '/' ? img + '\n' : /^\/week-\d\/$/.test(l) ? wimg(l[6]) : '')).join('\n')}
 </urlset>
 `);
-console.log(`built ${S.length} school pages + index · 3 week pages · guide · home regions · ${ALL_PARTIES.length} party events checked against Eventbrite (read ${EBD.read_at}) · sitemap ${urls.length} urls`);
+console.log(`built ${S.length} school pages + index · 3 week pages · guide · home regions · llms.txt · ${ALL_PARTIES.length} party events checked against Eventbrite (read ${EBD.read_at}) · sitemap ${urls.length} urls`);
 for (const s of S) { const t = titleFor(s); if (t.length > 60) console.warn('TITLE >60', t.length, t); }
