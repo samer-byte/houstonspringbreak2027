@@ -164,9 +164,9 @@ const head = ({ title, desc, canonical, jsonld, image = `${SITE}/img/school-list
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${image}">
 <meta name="twitter:image:alt" content="${esc(imageAlt)}">
-<meta name="theme-color" content="#140b26">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
-<link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#03040a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%279%27 fill=%27%2303040a%27 stroke=%27%237ff6ff%27 stroke-width=%272%27/%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%2715%27 ry=%275%27 fill=%27none%27 stroke=%27%23ff6a2b%27 stroke-width=%272%27 transform=%27rotate(-24 16 16)%27/%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/pages.css">
 <script type="application/ld+json">
 ${JSON.stringify(jsonld, null, 1)}
@@ -550,7 +550,7 @@ function guidePage() {
   const qs = [
     ['When is Houston Spring Break 2027?', `March 10–28, 2027, in three weeks: Week 1 is March 8–14, Week 2 is March 15–21 and Week 3 is March 22–28. Party nights are Thursday to Sunday of each week.`],
     ['How much is a Party Pack?', `$${D.weeks['1'].pack} for Week 1, $${D.weeks['2'].pack} for Week 2 and $${D.weeks['3'].pack} for Week 3, before fees. Each pack covers every event that week.`],
-    ['Are the parties 21+?', `Events are 18+ unless marked 21+. The 21+ events are the ${listAnd(ADULT_NAMES)}, every week. Bring a valid government ID.`],
+    ['Are the parties 21+?', `Events marked 21+ are 21+; every other event is 18+. The 21+ events are the ${listAnd(ADULT_NAMES)}, every week. Bring a valid government ID.`],
     ['Where are the parties?', 'In Houston, Texas. Venue addresses are announced the week of each event and sent to ticket holders and the official GroupMe.'],
     ['Which week should I pick?', `The week your school is on spring break. The <a href="/schools/">Find your school</a> page and the <a href="/#school-list">2027 School List flyers</a> show every school's week. Week 2 is the biggest week.`],
     ['Can I get a refund?', refundA(aff)],
@@ -595,7 +595,7 @@ ${sec('packs', 'How the Party Packs work', `<p>A Party Pack is one ticket for ev
         <p><a class="btn btn-sun" href="${EB}?aff=${aff}_packs">See the packs on Eventbrite</a></p>`)}
 ${sec('lineup', 'The lineup', `<p>The same four nights run every week. 21+ events are listed first each night. Prices are single tickets before fees; each week's page has the full night-by-night lineup.</p>
         <div class="pattern">${dows.map(d => `<div class="pat-day"><h3>${d}</h3><ul>${slots.filter(s => s.dow === d).sort((a, b) => (b.adult - a.adult) || (a.i - b.i)).map(s => `<li><span class="pn">${esc(s.n)}${s.adult ? ' <em>21+</em>' : ''}</span><span class="pp">${priceTxt(s)}</span><span class="pd">${esc(D.parties[s.n])}</span></li>`).join('')}</ul></div>`).join('')}</div>`)}
-${sec('age', '21+ rules', `<p>Events are 18+ unless marked 21+. These are 21+ every week:</p>
+${sec('age', '21+ rules', `<p>Events marked 21+ are 21+; every other event is 18+. These are 21+ every week:</p>
         <ul class="bul">${[...new Set(PARTIES['1'].filter(p => p.adult).map(p => `${p.day.split(',')[0]}: ${p.name}`))].map(t => `<li>${esc(t)}</li>`).join('')}</ul>
         <p>Bring a valid government ID to every 21+ event. For the Booze Boat, the ID is checked at the dock, boarding starts 20 minutes before departure, and the boat does not wait.</p>`)}
 ${sec('addresses', 'How the addresses drop', `<p>Mansion and pool party locations stay private until the week of each event. Then the addresses go to ticket holders by email and into the <a href="${GM}">official Houston Spring Break GroupMe</a>, along with day-of updates. Buy your ticket, join the GroupMe, and the address comes to you.</p>

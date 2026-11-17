@@ -248,3 +248,83 @@ section[id]{scroll-margin-top:70px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.001ms!important}
 }
+
+/* ===== Space City layer (2026-11-16): same pages, deep-space look. Tokens remapped, the sunset scene replaced by a static
+   star field (no canvas, no loops here). Must load after the rules above. ===== */
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:400 800;font-display:swap;src:url(/fonts/unbounded-latin.woff2) format("woff2")}
+@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/space-grotesk-latin.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format("woff2")}
+:root{
+  --sun:#7ff6ff; --sun2:#38d4ff; --rose:#9a8cff; --plum:#3b3f8f; --night:#0a1020; --ink:#03040a;
+  --aqua:#7ff6ff; --aqua2:#38d4ff; --cream:#eaf4ff; --sand:#93a6bd;
+  --thrust:#ff6a2b; --line:rgba(127,246,255,.16); --line2:rgba(127,246,255,.38); --muted:#a3b4c8;
+  --display:"Unbounded","Arial Black",sans-serif; --body:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --max:1200px;
+}
+body{background:var(--ink)}
+.scene{background:
+    radial-gradient(1200px 700px at 78% 8%,rgba(56,212,255,.10),transparent 60%),
+    radial-gradient(900px 600px at 8% 40%,rgba(154,140,255,.08),transparent 60%),
+    linear-gradient(180deg,#03040a,#050813 60%,#03040a)}
+.scene>*{display:none!important}
+.scene::before,.scene::after{content:"";position:absolute;inset:0;background-repeat:repeat}
+.scene::before{opacity:.55;background-image:
+  radial-gradient(1px 1px at 23px 41px,#cfe9ff 50%,transparent 51%),radial-gradient(1px 1px at 141px 97px,#fff 50%,transparent 51%),
+  radial-gradient(1.4px 1.4px at 87px 163px,#bfefff 50%,transparent 51%),radial-gradient(1px 1px at 201px 13px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 173px 211px,#dfe8ff 50%,transparent 51%);background-size:233px 233px}
+.scene::after{opacity:.35;background-image:radial-gradient(1px 1px at 61px 89px,#fff 50%,transparent 51%),
+  radial-gradient(1.6px 1.6px at 301px 233px,#9ff3ff 50%,transparent 51%),radial-gradient(1px 1px at 377px 31px,#fff 50%,transparent 51%);background-size:409px 409px}
+::selection{background:var(--sun);color:#021018}
+:focus-visible{outline:2px solid var(--sun)}
+.skip{color:#021018}
+.bar{background:rgba(3,4,10,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.bar .mark{font-weight:700;font-size:14px;letter-spacing:.08em}
+h1,h2,h3{font-weight:700;letter-spacing:-.005em}
+h2{line-height:1.02}
+.head h1{font-weight:800;line-height:.95;font-size:clamp(38px,6.6vw,88px);text-shadow:none;
+  background:linear-gradient(180deg,#fff 20%,#bcd8f0 62%,#6f8cab 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.head h1 .h1-sub{font-weight:600;letter-spacing:.18em;-webkit-text-fill-color:var(--sun);color:var(--sun)}
+.sec-h{text-shadow:none}
+.eyebrow{background:none;color:var(--sun);padding:0;border-radius:0;font:500 12px/1.3 var(--mono);letter-spacing:.18em;display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";height:1px;width:64px;background:linear-gradient(90deg,var(--line2),transparent)}
+.lede{color:#c3d3e6}
+.panel,.card,.fr{background:rgba(10,16,30,.62);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.card::before{opacity:.07}
+.card.hot{border-color:rgba(255,106,43,.55)}
+.c-sun{--tint:linear-gradient(160deg,#7ff6ff,transparent)}.c-rose{--tint:linear-gradient(160deg,#ff6a2b,transparent)}
+.c-aqua{--tint:linear-gradient(160deg,#9a8cff,transparent)}.c-lime{--tint:linear-gradient(160deg,#7ff6ff,transparent)}.c-plum{--tint:linear-gradient(160deg,#9a8cff,transparent)}
+.btn{font-weight:600;font-size:15px;min-height:52px}
+.btn-sun{background:var(--thrust);color:#140600;box-shadow:0 0 0 1px rgba(255,138,79,.4),0 10px 34px -10px rgba(255,106,43,.75)}
+.btn-sun:hover{background:#ff8a4f}
+.btn-aqua{background:rgba(127,246,255,.06);color:var(--cream);border:1px solid var(--line2);box-shadow:none}
+.btn-aqua:hover{background:rgba(127,246,255,.12);border-color:var(--sun)}
+.panel p a.btn-sun{color:#140600}.panel p a.btn-aqua{color:var(--cream)}
+.chip{border-color:var(--line);background:rgba(10,16,30,.5);color:var(--muted)}
+.chip b{color:var(--cream);font-weight:600}
+.pk-week,.lw h3 span,.pk-amt span,.weekpill,.glance dt,.day h4,.flyer figcaption,.tags span{font-family:var(--mono);font-weight:500}
+.pk-amt{font-weight:700;letter-spacing:-.02em}
+.day,.night li,.plan,.faq-q,.faq-q:first-child{border-color:var(--line)}
+.day em,.pn em,.pattern em{background:none;border:1px solid rgba(255,106,43,.45);color:var(--thrust);font-family:var(--mono);font-weight:600;font-size:10px}
+.day .price,.night .price,.pp{font-family:var(--mono);font-weight:500;font-size:16px}
+.sl a,.toc a{border-color:var(--line);background:rgba(10,16,30,.5)}
+.sl a:hover,.toc a:hover{border-color:var(--line2);background:rgba(127,246,255,.08)}
+.finder input{border-radius:12px;border:1px solid var(--line2);background:rgba(5,9,18,.72)}
+.finder input::placeholder{color:#8496ad}
+.finder input:focus{border-color:var(--sun);box-shadow:0 0 0 2px var(--sun)}
+.finder label{font:500 11px/1.3 var(--mono);letter-spacing:.16em;color:var(--muted)}
+.fr-n{font-weight:700;font-size:18px}
+.glance div{border-color:var(--line);background:rgba(5,9,18,.6);border-radius:12px}
+.glance dd{font-weight:700}
+.pat-day{border-top:1px solid var(--line2)}
+.flyer{border-color:var(--line);border-radius:14px}
+.faq-q summary::after{font-family:var(--mono);font-weight:500}
+footer{background:rgba(3,4,10,.86);border-top:1px solid var(--line)}
+.foot-links a{color:var(--muted)}.foot-links a:hover{color:var(--sun)}
+.foot-base{font-family:var(--mono);font-size:12px;color:#8496ad;opacity:1}
+.tags span{border-color:var(--line2);color:var(--sun)}
+.head h1{font-size:clamp(34px,5.4vw,72px)}
+@media (max-width:560px){.bar{padding:10px 14px}.bar .mark{font-size:0;letter-spacing:0}.bar .mark span{font-size:12px;letter-spacing:.06em}.bar .mark span::before{content:"HTX ";color:var(--cream)}.bar-cta{gap:6px}.bar .btn{padding:0 14px}}
+
+.eyebrow{flex-wrap:wrap;row-gap:6px}
+.head h1 .h1-sub{line-height:1.15}
+.bar .btn{min-height:44px}
