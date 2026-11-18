@@ -420,6 +420,19 @@ const nightsGrid = (w, aff) => {
   }).join('\n        ')}</div>
       <p class="fine">Single tickets before fees, on <a href="${EB}?aff=${aff}">Eventbrite</a>. 21+ events are marked; everything else is 18+. Venues are announced the week of each event.</p>`;
 };
+// real party photos on each week page (img/party/, from past Houston and Miami spring breaks; no generated people)
+const WEEK_SHOTS = {
+  1: [['friends-bikini-trio', 'Three friends in bikinis at a night backyard party', 'Backyard party'], ['mansion-pool-blue', 'Mansion pool party at night, seen from above', 'Mansion party'], ['day-party-crowd', 'Crowded backyard day party', 'Day party'], ['club-trio', 'Three friends at a club night', 'Club night']],
+  2: [['houston-club-crowd', 'Houston club night with phone lights and red smoke', 'Club night · Houston'], ['friends-night-trio', 'Three friends posing at a night party', 'Night party'], ['mansion-pool-house', 'Pool party crowd in front of a mansion', 'Mansion pool party'], ['friends-bikini-duo', 'Two friends in bright bikinis at a night party', 'Night party']],
+  3: [['day-pool-crew', 'Friends in a pool at a daytime party', 'Day pool party'], ['friends-smiles', 'Two friends smiling at a party', 'Night party'], ['houston-club-lights', 'Houston club crowd under stage lights', 'Club night · Houston'], ['mansion-red-trio', 'Three friends in red swimsuits at a mansion party', 'Mansion party']],
+};
+const weekShots = w => `<section class="wk-photos" aria-label="Photos from past spring break parties">
+    <div class="wrap">
+      <div class="wk-shots">${WEEK_SHOTS[w].map(([n, alt, cap]) => `<figure><img src="/img/party/${n}.webp" width="800" height="1000" loading="lazy" decoding="async" alt="${alt}"><figcaption>${cap}</figcaption></figure>`).join('')}</div>
+      <p class="wk-photos-note">Photos from our past spring break parties in Houston and Miami.</p>
+    </div>
+  </section>`;
+
 function weekPage(w) {
   const W = D.weeks[w], url = W.url, aff = `site_w${w}`;
   const label = W.label.replace(' – ', '–');
@@ -466,6 +479,7 @@ function weekPage(w) {
       </div>
     </div>
   </section>
+  ${weekShots(w)}
   <section aria-labelledby="lineup-h">
     <div class="wrap">
       <h2 id="lineup-h" class="sec-h">Week ${w} lineup, night by night</h2>

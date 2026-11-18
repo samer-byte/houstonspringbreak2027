@@ -1938,7 +1938,7 @@ html.js .rv.in{opacity:1;transform:none}
 @media (max-width:820px){
   body{font-size:16px}
   .hero{align-items:flex-start}
-  .hero-in{padding:min(27svh,230px) var(--pad) 56px}
+  .hero-in{padding:min(21svh,180px) var(--pad) 56px}
   .count{order:9}
   .second{order:10}
   .hud .t2,.hud .t4{display:none}
@@ -1950,7 +1950,7 @@ html.js .rv.in{opacity:1;transform:none}
   .week b{font-size:12px}
   .week span{font-size:11px}
 }
-@media (max-width:380px){.hero-in{padding-top:min(24svh,190px)}}
+@media (max-width:380px){.hero-in{padding-top:min(20svh,160px)}}
 
 /* days to the first party */
 .count{display:flex;align-items:center;gap:16px;margin-top:22px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;max-width:560px;background:rgba(3,5,12,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -1969,6 +1969,44 @@ html.js .rv.in{opacity:1;transform:none}
 .final.open .gate i:nth-child(2){animation-delay:.12s}.final.open .gate i:nth-child(3){animation-delay:.24s}.final.open .gate i:nth-child(4){animation-delay:.05s}
 .final.done .gate i{animation:none;opacity:1;transform:none}
 @keyframes gate{0%{opacity:0;transform:scale(.15)}55%{opacity:1}100%{opacity:1;transform:scale(1)}}
+
+/* ---------- real party footage (recap, photo bands) ---------- */
+.reel-link{display:block;margin-top:18px;max-width:560px;padding:8px;border:1px solid var(--line);border-radius:16px;background:rgba(3,5,12,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:border-color .2s}
+.reel-link:hover{border-color:var(--line2)}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.strip img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px}
+.rl-row{display:flex;align-items:center;gap:12px;padding:10px 6px 4px}
+.rl-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rl-t b{font:600 15px/1.25 var(--body);color:var(--text)}
+.rl-t small{font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rl-play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--thrust);position:relative}
+.rl-play::after{content:"";position:absolute;left:13px;top:10px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #0b0d14}
+
+.recap{padding-top:clamp(48px,6vw,80px)}
+.recap-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);grid-template-rows:auto 1fr;grid-template-areas:"head reel" "more reel";column-gap:clamp(28px,5vw,72px);align-items:start}
+.recap-head{grid-area:head}.reel{grid-area:reel}.recap-more{grid-area:more}
+.reel{position:relative;margin:0}
+.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;border:1px solid var(--line2);background:#000;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 6px rgba(127,246,255,.05)}
+.reel figcaption{margin-top:10px;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.reel-btn{position:absolute;right:12px;top:12px;min-width:44px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:rgba(3,4,10,.72);color:var(--text);font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.reel-btn:focus-visible{outline:2px solid var(--ion);outline-offset:2px}
+.recap-tiles,.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.shots{grid-template-columns:repeat(3,1fr);margin:28px 0 8px}
+.recap-tiles figure,.shots figure{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.recap-tiles img,.shots img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.recap-tiles figcaption,.shots figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(3,4,10,.85));font:600 12px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.recap-more .hero-cta{margin-top:24px}
+@media (min-width:1101px){.recap-tiles{grid-template-columns:repeat(4,1fr)}.recap-tiles img{aspect-ratio:3/4}}
+@media (min-width:821px) and (max-width:1100px){.recap-tiles img{aspect-ratio:4/3}}
+.shots-note{margin:0 0 20px;font-size:13px;color:var(--dim)}
+@media (max-width:820px){
+  .recap-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"head" "reel" "more"}
+  .reel{margin-top:24px}
+  .shots{gap:8px}
+  .shots figcaption{font-size:10px;padding:22px 8px 8px;letter-spacing:.06em}
+}
+.final-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.32;
+  -webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
 </style>
 </head>
 <body>
@@ -2000,6 +2038,7 @@ html.js .rv.in{opacity:1;transform:none}
         <a class="btn btn-sun btn-lg" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_hero">Get Tickets · from $20 <span class="arr" aria-hidden="true">→</span></a>
         <a class="btn btn-aqua btn-lg" href="https://groupme.com/join_group/117252442/pLz9YWNs">Join the GroupMe</a>
       </div>
+      <a class="reel-link" href="#recap"><span class="strip"><img src="img/party/t-friends-bikini-trio.webp" width="280" height="350" decoding="async" alt=""><img src="img/party/t-houston-club-crowd.webp" width="280" height="350" decoding="async" alt=""><img src="img/party/t-mansion-pool-aerial.webp" width="280" height="350" decoding="async" alt=""><img src="img/party/t-friends-smiles.webp" width="280" height="350" decoding="async" alt=""></span><span class="rl-row"><span class="rl-play" aria-hidden="true"></span><span class="rl-t"><b>Watch the spring break recap</b><small>Real video and photos from our parties</small></span></span></a>
       <p class="count" id="count" hidden><b data-days>--</b><span>days to the first party<small>Thursday, March 11 · Houston</small></span></p>
       <div class="second">
         <a class="chip" href="https://posh.vip/e/houston-spring-break-2027-2"><b>Free RSVP on Posh</b> · see who's going</a>
@@ -2026,6 +2065,27 @@ html.js .rv.in{opacity:1;transform:none}
 </div></div>
 
 <main id="main" tabindex="-1">
+
+<!-- ===== RECAP: real footage first ===== -->
+<section class="recap" id="recap" aria-labelledby="recap-h">
+  <div class="wrap recap-grid">
+    <div class="recap-head">
+      <p class="eyebrow rv">Recap · real photos and video</p>
+      <h2 id="recap-h" class="rv">Spring Break Recap</h2>
+      <p class="lede rv">Real video and photos from our past spring break parties in Houston and Miami: mansion pool parties, club nights and day parties.</p>
+    </div>
+    <figure class="reel rv">
+      <video id="reel" muted loop playsinline controls preload="none" width="720" height="1280" poster="img/party/recap-poster.webp" aria-label="Spring break recap video: club nights, pool parties and day parties, no sound"><source src="video/recap-2026.mp4" type="video/mp4"></video>
+      <button class="reel-btn" type="button" hidden>Pause</button>
+      <figcaption>Recap · Houston 2026 and past spring breaks</figcaption>
+    </figure>
+    <div class="recap-more">
+      <div class="recap-tiles rv"><figure><img src="img/party/mansion-pool-house.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Pool party crowd in front of a mansion at night"><figcaption>Mansion pool party</figcaption></figure><figure><img src="img/party/houston-club-lights.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Houston club crowd under stage lights"><figcaption>Club night</figcaption></figure><figure><img src="img/party/friends-pool-glow.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Two friends by a glowing green pool"><figcaption>Pool party</figcaption></figure><figure><img src="img/party/day-party-crowd.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Crowded backyard day party"><figcaption>Day party</figcaption></figure></div>
+      <div class="hero-cta rv"><a class="btn btn-sun btn-lg" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_recap">Get Tickets · from $20 <span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ===== AT A GLANCE ===== -->
 <section class="glance-sec" id="at-a-glance" aria-labelledby="glance-h">
@@ -2133,6 +2193,8 @@ html.js .rv.in{opacity:1;transform:none}
     <p class="eyebrow rv">04 · Lineup</p>
     <h2 id="lineup-h" class="rv">The Lineup, Day By Day</h2>
     <p class="lede rv">Same four nights every week: a booze boat and Pretty Nasty on Thursday, brunch, a pool party and Houston Gone Wild on Friday, a day party and Freaknik HTX on Saturday, and a day party plus March Madness on Sunday. Prices are single tickets before fees.</p>
+    <div class="shots rv"><figure><img src="img/party/mansion-pool-blue.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Mansion pool party at night, seen from above"><figcaption>Pool party</figcaption></figure><figure><img src="img/party/day-pool-crew.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Friends in a pool at a daytime party"><figcaption>Day party</figcaption></figure><figure><img src="img/party/houston-club-floor.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Houston club floor full of phone lights"><figcaption>Club night · Houston</figcaption></figure></div>
+    <p class="shots-note rv">Photos from our past spring break parties in Houston and Miami.</p>
     <!-- BUILD:lineup -->
 <div class="lineup-grid"><article class="card lw c-sun" id="week-1"><h3>Week 1 <span>March 8 – 14</span></h3><p class="lw-note">The opening week. Parties run Thursday, March 11 through Sunday, March 14.</p><div class="day"><h4>Thursday, March 11</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Friday, March 12</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$20</span></li><li><span>Houston Gone Wild</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Saturday, March 13</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Sunday, March 14</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$20</span></li><li><span>March Madness <em>21+</em></span><span class="price">$20</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_lineup_w1">Week 1 Party Pack · $80</a><a class="pk-link" href="/week-1/">Week 1 page: schools, lineup, FAQ</a></article><article class="card lw c-rose hot" id="week-2"><h3>Week 2 <span>March 15 – 21</span></h3><p class="lw-note">The biggest week. Parties run Thursday, March 18 through Sunday, March 21.</p><div class="day"><h4>Thursday, March 18</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Friday, March 19</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$30</span></li><li><span>Houston Gone Wild</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Saturday, March 20</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$30</span></li></ul></div><div class="day"><h4>Sunday, March 21</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$30</span></li><li><span>March Madness <em>21+</em></span><span class="price">$30</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_lineup_w2">Week 2 Party Pack · $150</a><a class="pk-link" href="/week-2/">Week 2 page: schools, lineup, FAQ</a></article><article class="card lw c-aqua" id="week-3"><h3>Week 3 <span>March 22 – 28</span></h3><p class="lw-note">The closing week. Parties run Thursday, March 25 through Sunday, March 28.</p><div class="day"><h4>Thursday, March 25</h4><ul><li><span>Booze Boat Party w/ Open Bar <em>21+</em></span><span class="price">$80</span></li><li><span>Pretty Nasty</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Friday, March 26</h4><ul><li><span>Brunch + Day Party <em>21+</em></span><span class="price">Free</span></li><li><span>Splash City HTX Pool Party</span><span class="price">$20</span></li><li><span>Houston Gone Wild</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Saturday, March 27</h4><ul><li><span>Day Party</span><span class="price">$25</span></li><li><span>Freaknik HTX</span><span class="price">$20</span></li></ul></div><div class="day"><h4>Sunday, March 28</h4><ul><li><span>Day Party <em>21+</em></span><span class="price">$20</span></li><li><span>March Madness <em>21+</em></span><span class="price">$20</span></li></ul></div><a class="btn btn-sun" href="https://www.eventbrite.com/e/houston-spring-break-2027-college-mansion-pool-yacht-parties-mar-10-28-tickets-1998827838873?aff=site_lineup_w3">Week 3 Party Pack · $80</a><a class="pk-link" href="/week-3/">Week 3 page: schools, lineup, FAQ</a></article></div>
 <!-- /BUILD:lineup -->
@@ -2175,18 +2237,19 @@ html.js .rv.in{opacity:1;transform:none}
     <p class="eyebrow rv">07 · Previous years</p>
     <h2 id="gal-h" class="rv">Pictures From Previous Years</h2>
     <div class="gallery rv">
-      <figure><img src="img/gal-1.webp" width="600" height="750" loading="lazy" decoding="async" alt="Night mansion pool party aerial view"><figcaption>01 / 12</figcaption></figure>
-      <figure><img src="img/gal-2.webp" width="600" height="750" loading="lazy" decoding="async" alt="Pool party with stage lighting"><figcaption>02 / 12</figcaption></figure>
-      <figure><img src="img/gal-3.webp" width="600" height="750" loading="lazy" decoding="async" alt="Packed night pool party"><figcaption>03 / 12</figcaption></figure>
-      <figure><img src="img/gal-4.webp" width="600" height="750" loading="lazy" decoding="async" alt="Mansion pool party crowd"><figcaption>04 / 12</figcaption></figure>
-      <figure><img src="img/gal-5.webp" width="600" height="750" loading="lazy" decoding="async" alt="Mansion backyard crowd at dusk"><figcaption>05 / 12</figcaption></figure>
-      <figure><img src="img/gal-6.webp" width="600" height="750" loading="lazy" decoding="async" alt="DJ over a lit crowd"><figcaption>06 / 12</figcaption></figure>
-      <figure><img src="img/gal-7.webp" width="600" height="750" loading="lazy" decoding="async" alt="Crowd dancing with lights"><figcaption>07 / 12</figcaption></figure>
-      <figure><img src="img/gal-8.webp" width="600" height="750" loading="lazy" decoding="async" alt="Hype moment at the DJ booth"><figcaption>08 / 12</figcaption></figure>
-      <figure><img src="img/gal-9.webp" width="600" height="400" loading="lazy" decoding="async" alt="Daytime party crowd"><figcaption>09 / 12</figcaption></figure>
-      <figure><img src="img/gal-10.webp" width="600" height="900" loading="lazy" decoding="async" alt="Green-lit ballroom crowd"><figcaption>10 / 12</figcaption></figure>
-      <figure><img src="img/gal-11.webp" width="600" height="750" loading="lazy" decoding="async" alt="DJ booth laughs"><figcaption>11 / 12</figcaption></figure>
-      <figure><img src="img/gal-12.webp" width="600" height="750" loading="lazy" decoding="async" alt="Friends with a party prop sign"><figcaption>12 / 12</figcaption></figure>
+      <figure><img src="img/party/friends-bikini-duo.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Two friends in bright bikinis at a night party"><figcaption>01 / 13</figcaption></figure>
+      <figure><img src="img/party/mansion-red-trio.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Three friends in red swimsuits at a mansion party"><figcaption>02 / 13</figcaption></figure>
+      <figure><img src="img/party/club-trio.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Three friends at a club night"><figcaption>03 / 13</figcaption></figure>
+      <figure><img src="img/party/friends-night-trio.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Three friends posing at a night party"><figcaption>04 / 13</figcaption></figure>
+      <figure><img src="img/party/friends-peace-solo.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Partygoer in a bikini throwing up a peace sign"><figcaption>05 / 13</figcaption></figure>
+      <figure><img src="img/party/pool-day-solo.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Partygoer in a pink bikini at a daytime pool party"><figcaption>06 / 13</figcaption></figure>
+      <figure><img src="img/party/friends-squad.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Three friends at a party"><figcaption>07 / 13</figcaption></figure>
+      <figure><img src="img/party/club-duo.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Two friends in a club"><figcaption>08 / 13</figcaption></figure>
+      <figure><img src="img/party/mansion-trio.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Three friends at a mansion party"><figcaption>09 / 13</figcaption></figure>
+      <figure><img src="img/party/friends-peace.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Two friends throwing up peace signs"><figcaption>10 / 13</figcaption></figure>
+      <figure><img src="img/party/friends-duo-night.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Two friends posing at a night party"><figcaption>11 / 13</figcaption></figure>
+      <figure><img src="img/gal-11.webp" width="600" height="750" loading="lazy" decoding="async" alt="DJ booth laughs"><figcaption>12 / 13</figcaption></figure>
+      <figure><img src="img/gal-10.webp" width="600" height="900" loading="lazy" decoding="async" alt="Green-lit ballroom crowd"><figcaption>13 / 13</figcaption></figure>
     </div>
     <p class="gal-hint" aria-hidden="true">Drag or swipe</p>
   </div>
@@ -2204,6 +2267,7 @@ html.js .rv.in{opacity:1;transform:none}
 
 <!-- ===== FINAL ===== -->
 <section class="final" aria-labelledby="final-h">
+  <img class="final-bg" src="img/party/houston-club-red.webp" width="800" height="1000" loading="lazy" decoding="async" alt="">
   <div class="gate" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="wrap">
     <p class="eyebrow rv">Tickets on sale now</p>
@@ -2304,6 +2368,16 @@ html.js .rv.in{opacity:1;transform:none}
   document.querySelectorAll('.card').forEach(function(c){
     c.addEventListener('pointermove', function(e){ var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
   });
+
+  /* recap video: plays muted while on screen; reduced motion = poster + controls, nothing moves by itself */
+  var v = document.getElementById('reel'), vb = document.querySelector('.reel-btn');
+  if (v && !RM && window.IntersectionObserver) {
+    v.removeAttribute('controls'); vb.hidden = false; var userPaused = false;
+    function setBtn(){ var p = v.paused; vb.textContent = p ? 'Play' : 'Pause'; }
+    v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
+    vb.addEventListener('click', function(){ if (v.paused) { userPaused = false; v.play(); } else { userPaused = true; v.pause(); } });
+    new IntersectionObserver(function(es){ if (es[0].isIntersecting) { if (!userPaused) { var pr = v.play(); if (pr && pr.catch) pr.catch(function(){ v.setAttribute('controls',''); vb.hidden = true; }); } } else v.pause(); }, {threshold:.25}).observe(v);
+  }
 
   /* gallery: drag with the mouse (touch scrolls natively) */
   var g = document.querySelector('.gallery');
