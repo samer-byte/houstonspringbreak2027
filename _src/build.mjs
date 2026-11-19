@@ -17,6 +17,10 @@ const TODAY = process.env.LASTMOD || new Date().toISOString().slice(0, 10);
 const D = JSON.parse(readFileSync(path.join(ROOT, '_src/schools.json'), 'utf8'));
 const EBD = JSON.parse(readFileSync(path.join(ROOT, '_src/eventbrite.json'), 'utf8'));
 const EB = D.eventbrite, GM = D.groupme, POSH = D.posh, P = D.profiles;
+
+// Posh tracking tags: a short fixed set (site, site-w1..3, site-school, site-guide, site-links) so the Posh links list stays readable.
+const TAG = t => { const w = t.match(/(?:^|_)w([123])(?:_|$)/); if (w) return 'site-w' + w[1]; if (t.startsWith('site_s_')) return 'site-school'; if (t.includes('guide')) return 'site-guide'; if (t.includes('links')) return 'site-links'; return 'site'; };
+const W = (p, c) => writeFileSync(p, typeof c === 'string' ? c.replace(/(posh\.vip\/e\/houston-spring-break-2027-2\?t=)([a-z0-9_]+)/g, (m, a, t) => a + (t.startsWith('site-') || t === 'site' ? t : TAG(t))) : c);
 const GUIDE = '/houston-spring-break-guide/';
 
 const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -101,7 +105,7 @@ const partyNode = p => ({
   organizer: ORG_REF,
   typicalAgeRange: p.adult ? '21-' : '18-',
   ...(p.free ? { isAccessibleForFree: true } : {}),
-  offers: { '@type': 'Offer', name: p.tc.name, url: `${EB}?aff=site_ld_w${p.w}`, price: p.price, priceCurrency: 'USD',
+  offers: { '@type': 'Offer', name: p.tc.name, url: `${POSH}?t=site_ld_w${p.w}`, price: p.price, priceCurrency: 'USD',
     availability: avail(p.tc), validFrom: p.tc.sales_start, validThrough: p.tc.sales_end },
   url: partyId(p),
   superEvent: { '@id': weekId(p.w) },
@@ -116,9 +120,9 @@ const weekNode = w => {
     location: PLACE, image: [`${SITE}/img/school-list-week-${w}.jpg`, `${SITE}/img/school-list-2027.jpg`], organizer: ORG_REF,
     url: W.url, superEvent: { '@id': `${SITE}/#series` },
     offers: [
-      { '@type': 'Offer', name: `Week ${w} Party Pack`, url: `${EB}?aff=site_ld_w${w}`, price: String(W.pack), priceCurrency: 'USD',
+      { '@type': 'Offer', name: `Week ${w} Party Pack`, url: `${POSH}?t=site_ld_w${w}`, price: String(W.pack), priceCurrency: 'USD',
         availability: avail(W.packClass), validFrom: W.packClass.sales_start, validThrough: W.packClass.sales_end },
-      { '@type': 'AggregateOffer', name: `Week ${w} single party tickets`, url: `${EB}?aff=site_ld_w${w}`, lowPrice: String(W.singlesFrom), highPrice: String(W.singlesTo),
+      { '@type': 'AggregateOffer', name: `Week ${w} single party tickets`, url: `${POSH}?t=site_ld_w${w}`, lowPrice: String(W.singlesFrom), highPrice: String(W.singlesTo),
         offerCount: PARTIES[w].filter(p => !p.free).length, priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
     ],
     subEvent: PARTIES[w].map(p => ({ '@id': partyId(p) })),
@@ -176,7 +180,7 @@ ${JSON.stringify(jsonld, null, 1)}
 const bar = aff => `<header class="bar">
   <a class="mark" href="/">Houston <span>Spring Break 27</span></a>
   <div class="bar-cta">
-    <a class="btn btn-sun" href="${EB}?aff=${aff}">Tickets</a>
+    <a class="btn btn-sun" href="${POSH}?t=${aff}">Tickets</a>
     <a class="btn btn-aqua" href="${GM}">GroupMe</a>
   </div>
 </header>`;
@@ -228,10 +232,10 @@ const flyer = (w, sizes = '(max-width:980px) 100vw, 560px') => `<figure class="f
 const lineupCard = (w, { h = 'h3', link = true, btn = false, aff = '' } = {}) => {
   const W = D.weeks[w];
   const days = W.days.map(([day, items]) => `<div class="day"><h4>${day}</h4><ul>${items.map(([n, adult, p]) => `<li><span>${esc(n)}${adult ? ' <em>21+</em>' : ''}</span><span class="price">${p}</span></li>`).join('')}</ul></div>`).join('');
-  return `<article class="card lw ${tint(+w)}${+w === 2 ? ' hot' : ''}" id="week-${w}"><${h}>Week ${w} <span>${W.label}</span></${h}><p class="lw-note">${W.note} Parties run ${W.nights.replace(' to ', ' through ')}.</p>${days}${btn ? `<a class="btn btn-sun" href="${EB}?aff=${aff}">Week ${w} Party Pack · $${W.pack}</a>` : ''}${link ? `<a class="pk-link" href="/week-${w}/">Week ${w} page: schools, lineup, FAQ</a>` : ''}</article>`;
+  return `<article class="card lw ${tint(+w)}${+w === 2 ? ' hot' : ''}" id="week-${w}"><${h}>Week ${w} <span>${W.label}</span></${h}><p class="lw-note">${W.note} Parties run ${W.nights.replace(' to ', ' through ')}.</p>${days}${btn ? `<a class="btn btn-sun" href="${POSH}?t=${aff}">Week ${w} Party Pack · $${W.pack}</a>` : ''}${link ? `<a class="pk-link" href="/week-${w}/">Week ${w} page: schools, lineup, FAQ</a>` : ''}</article>`;
 };
 const adultList = w => PARTIES[w].filter(p => p.adult).map(p => `${p.day.split(',')[0]} ${p.name}`);
-const refundA = aff => `Refunds are available up to ${REFUND_DAYS} days before the event, under the refund policy on the <a href="${EB}?aff=${aff}">Eventbrite listing</a>. Request a refund from your Eventbrite order; it goes back to your original payment method.`;
+const refundA = aff => `Refunds are available up to ${REFUND_DAYS} days before the event, <a href="${POSH}?t=${aff}">ask through your Posh order</a> and it goes back to your original payment method.`;
 const faqBlock = qs => `<div class="faq-list">${qs.map(([q, a], i) => `<details class="faq-q"${i === 0 ? ' open' : ''}><summary><h3>${esc(q)}</h3></summary><p>${a}</p></details>`).join('')}</div>`;
 const page = ({ title, desc, canonical, jsonld, aff, body, scripts = '' }) => `${head({ title, desc, canonical, jsonld })}
 <body>
@@ -279,7 +283,7 @@ function schoolPage(s) {
   }[s.week];
   const qs = [
     [`Which Houston Spring Break 2027 week is for ${s.short} students?`, `${esc(s.name)} is on <a href="/week-${s.week}/">Week ${s.week}</a> of the official 2027 School List, so plan on Week ${s.week}: parties run ${W.nights}, 2027. The School List groups schools by spring-break week, so confirm your exact break dates on ${esc(s.name)}’s official academic calendar.`],
-    [`What does the Week ${s.week} Party Pack cover?`, `Every event in Week ${s.week} for $${W.pack} before fees. Bought separately, the same events come to about $${W.separately}. Week ${s.week} single tickets run $${W.singlesFrom}–$${W.singlesTo}, and the Friday brunch is free with a ticket. <a href="${EB}?aff=${aff}">Get the pack on Eventbrite</a>.`],
+    [`What does the Week ${s.week} Party Pack cover?`, `Every event in Week ${s.week} for $${W.pack} before fees. Bought separately, the same events come to about $${W.separately}. Week ${s.week} single tickets run $${W.singlesFrom}–$${W.singlesTo}, and the Friday brunch is free with a ticket. <a href="${POSH}?t=${aff}">Get the pack on Posh</a>.`],
     [`Which Week ${s.week} events are 21+?`, `${listAnd(adults)}. Bring a valid government ID. Everything else in Week ${s.week} is 18+.`],
     [`How do ${s.short} students get the party addresses?`, `Addresses are announced the week of each event. They are sent to ticket holders and posted in the <a href="${GM}">official Houston Spring Break GroupMe</a>.`],
     [`Is Houston Spring Break affiliated with ${s.short}?`, `No. Houston Spring Break is an independent event. It is not affiliated with or endorsed by ${esc(s.name)} or any other school.`],
@@ -299,7 +303,7 @@ function schoolPage(s) {
         <p class="tags"><span>${esc(where)}</span>${kind.map(k => `<span>${k}</span>`).join('')}<span>Week ${s.week}</span></p>
         <p class="lede">${esc(s.name)} is on <b>Week ${s.week}</b> of the official Houston Spring Break 2027 School List. Week ${s.week} parties run <b>${W.nights}, 2027</b>. ${intro}</p>
         <div class="cta-row">
-          <a class="btn btn-sun btn-lg" href="${EB}?aff=${aff}">Get the Week ${s.week} Pack · $${W.pack}</a>
+          <a class="btn btn-sun btn-lg" href="${POSH}?t=${aff}">Get the Week ${s.week} Pack · $${W.pack}</a>
           <a class="btn btn-aqua btn-lg" href="${GM}">Join the GroupMe</a>
         </div>
         <a class="chip" href="${POSH}"><b>Free RSVP on Posh</b> · see who's going</a>
@@ -315,7 +319,7 @@ function schoolPage(s) {
           <p class="pk-week">Week ${s.week} · ${pill(s.week)}</p>
           <p class="pk-amt">$${W.pack}<span>Party Pack</span></p>
           <p class="pk-note">Covers every event that week. About $${W.separately} if you bought each party separately. Prices before fees.</p>
-          <a class="btn btn-sun" href="${EB}?aff=${aff}">Get the Week ${s.week} Pack</a>
+          <a class="btn btn-sun" href="${POSH}?t=${aff}">Get the Week ${s.week} Pack</a>
           <p class="fine">Addresses drop in the <a class="ul" href="${GM}">official GroupMe</a> the week of each event.</p>
         </article>
         ${lineupCard(s.week, { h: 'h3' })}
@@ -348,7 +352,7 @@ function schoolPage(s) {
         <h2>Two things to do now</h2>
         <p class="lede">Grab the Week ${s.week} pack, then join the GroupMe so you get the addresses.</p>
         <div class="cta-row">
-          <a class="btn btn-sun btn-lg" href="${EB}?aff=${aff}">Get the Week ${s.week} Pack · $${W.pack}</a>
+          <a class="btn btn-sun btn-lg" href="${POSH}?t=${aff}">Get the Week ${s.week} Pack · $${W.pack}</a>
           <a class="btn btn-aqua btn-lg" href="${GM}">Join the GroupMe</a>
         </div>
         ${planLinks()}
@@ -372,7 +376,7 @@ function indexPage() {
         <p class="fr-w">${W.label} · parties ${W.nightsShort}</p>
         ${hb.length ? `<h3>HBCUs</h3>${schoolLinks(hb)}` : ''}
         ${tx.length ? `<h3>Texas schools</h3>${schoolLinks(tx)}` : ''}
-        <a class="btn btn-sun" href="${EB}?aff=site_schools_w${w}">Get the Week ${w} Pack · $${W.pack}</a>
+        <a class="btn btn-sun" href="${POSH}?t=site_schools_w${w}">Get the Week ${w} Pack · $${W.pack}</a>
         <a class="pk-link" href="/week-${w}/">Week ${w} page: lineup and FAQ</a>
       </article>`;
   };
@@ -418,7 +422,7 @@ const nightsGrid = (w, aff) => {
           </li>`).join('')}</ul>
         </article>`;
   }).join('\n        ')}</div>
-      <p class="fine">Single tickets before fees, on <a href="${EB}?aff=${aff}">Eventbrite</a>. 21+ events are marked; everything else is 18+. Venues are announced the week of each event.</p>`;
+      <p class="fine">Single tickets before fees, on <a href="${POSH}?t=${aff}">Posh</a>. 21+ events are marked; everything else is 18+. Venues are announced the week of each event.</p>`;
 };
 // real party photos on each week page (img/party/, from past Houston and Miami spring breaks; no generated people)
 const WEEK_SHOTS = {
@@ -472,7 +476,7 @@ function weekPage(w) {
           <div><dt>21+ events</dt><dd>${adults.length} of ${PARTIES[w].length}</dd></div>
         </dl>
         <div class="cta-row">
-          <a class="btn btn-sun btn-lg" href="${EB}?aff=${aff}">Get the Week ${w} Pack · $${W.pack}</a>
+          <a class="btn btn-sun btn-lg" href="${POSH}?t=${aff}">Get the Week ${w} Pack · $${W.pack}</a>
           <a class="btn btn-aqua btn-lg" href="${GM}">Join the GroupMe</a>
         </div>
         <a class="chip" href="${POSH}"><b>Free RSVP on Posh</b> · see who's going</a>
@@ -494,8 +498,8 @@ function weekPage(w) {
           <h2 id="pack-h" class="pk-h">The Week ${w} Party Pack</h2>
           <p class="pk-amt">$${W.pack}<span>Party Pack</span></p>
           <p class="pk-note">One ticket for all ${PARTIES[w].length} events of Week ${w}. About $${W.separately} if you bought each party separately. Prices before fees.</p>
-          <a class="btn btn-sun" href="${EB}?aff=${aff}_pack">Get the Week ${w} Pack</a>
-          <p class="fine">On Eventbrite, choose “Week ${w} Party Pack”. Addresses drop in the <a class="ul" href="${GM}">official GroupMe</a> the week of each event.</p>
+          <a class="btn btn-sun" href="${POSH}?t=${aff}_pack">Get the Week ${w} Pack</a>
+          <p class="fine">On Posh, choose “Week ${w} Party Pack”. Addresses drop in the <a class="ul" href="${GM}">official GroupMe</a> the week of each event.</p>
         </article>
         <div class="panel" id="schools">
           <h2 class="mini-h2">Schools on Week ${w}</h2>
@@ -531,7 +535,7 @@ function weekPage(w) {
         <h2>Lock in Week ${w}</h2>
         <p class="lede">Grab the Week ${w} pack, then join the GroupMe so you get the addresses.</p>
         <div class="cta-row">
-          <a class="btn btn-sun btn-lg" href="${EB}?aff=${aff}_final">Get the Week ${w} Pack · $${W.pack}</a>
+          <a class="btn btn-sun btn-lg" href="${POSH}?t=${aff}_final">Get the Week ${w} Pack · $${W.pack}</a>
           <a class="btn btn-aqua btn-lg" href="${GM}">Join the GroupMe</a>
         </div>
         ${planLinks(`/week-${w}/`)}
@@ -599,14 +603,14 @@ function guidePage() {
     </div>
   </section>
 ${sec('what', 'What Houston Spring Break 2027 is', `<p>Houston Spring Break 2027 is three weeks of college parties in Houston, Texas, from March 10 to March 28, 2027: mansion parties, pool parties, a booze boat party with an open bar, day parties and club nights. It is built for college students and young professionals, with 200+ schools on the official 2027 School List and a strong HBCU turnout.</p>
-        <p>Tickets and Party Packs are sold on <a href="${EB}?aff=${aff}">Eventbrite</a>. <a href="${POSH}">Free RSVP on Posh</a> saves your spot and shows who's going. Updates and addresses go out in the <a href="${GM}">official GroupMe</a> and on <a href="${P.instagram}">@houston_springbreak</a>.</p>`)}
+        <p>Tickets and Party Packs are sold on <a href="${POSH}?t=${aff}">Posh</a>. The free RSVP on the same page saves your spot and shows who's going. Updates and addresses go out in the <a href="${GM}">official GroupMe</a> and on <a href="${P.instagram}">@houston_springbreak</a>.</p>`)}
 ${sec('weeks', 'The three weeks', `<p>Each week follows the same pattern: four party nights, Thursday to Sunday. Come the week your school is on spring break.</p>
         <div class="grid-3 tight">${WEEKS.map(w => { const W = D.weeks[w]; return `<a class="card wk-link ${tint(+w)}${+w === 2 ? ' hot' : ''}" href="/week-${w}/"><span class="pk-week">Week ${w} · ${pill(w)}</span><span class="wl-d">${W.label}</span><span class="wl-n">Parties ${W.nightsShort}<br>Party Pack $${W.pack} · singles $${W.singlesFrom}–$${W.singlesTo}</span><span class="wl-go">Week ${w} lineup and schools</span></a>`; }).join('')}</div>`)}
-${sec('packs', 'How the Party Packs work', `<p>A Party Pack is one ticket for every event in one week. You buy it on Eventbrite by choosing the pack for your week.</p>
+${sec('packs', 'How the Party Packs work', `<p>A Party Pack is one ticket for every event in one week. You buy it on Posh by choosing the pack for your week.</p>
         <ul class="bul">${WEEKS.map(w => { const W = D.weeks[w]; return `<li><b>Week ${w} Party Pack: $${W.pack}.</b> Covers all ${PARTIES[w].length} Week ${w} events. Bought one by one, the same tickets come to about $${W.separately}.</li>`; }).join('')}
           <li><b>Single tickets</b> start at $${SINGLES_MIN}, and the Friday brunch is free with a ticket.</li>
-          <li><b>Prices are before fees.</b> Eventbrite adds its fees at checkout.</li></ul>
-        <p><a class="btn btn-sun" href="${EB}?aff=${aff}_packs">See the packs on Eventbrite</a></p>`)}
+          <li><b>Prices are before fees.</b> Posh adds its fees at checkout.</li></ul>
+        <p><a class="btn btn-sun" href="${POSH}?t=${aff}_packs">See the packs on Posh</a></p>`)}
 ${sec('lineup', 'The lineup', `<p>The same four nights run every week. 21+ events are listed first each night. Prices are single tickets before fees; each week's page has the full night-by-night lineup.</p>
         <div class="pattern">${dows.map(d => `<div class="pat-day"><h3>${d}</h3><ul>${slots.filter(s => s.dow === d).sort((a, b) => (b.adult - a.adult) || (a.i - b.i)).map(s => `<li><span class="pn">${esc(s.n)}${s.adult ? ' <em>21+</em>' : ''}</span><span class="pp">${priceTxt(s)}</span><span class="pd">${esc(D.parties[s.n])}</span></li>`).join('')}</ul></div>`).join('')}</div>`)}
 ${sec('age', '21+ rules', `<p>Events marked 21+ are 21+; every other event is 18+. These are 21+ every week:</p>
@@ -641,7 +645,7 @@ ${sec('travel', 'Getting to and around Houston', `<ul class="bul">
         <h2>Ready for Houston?</h2>
         <p class="lede">Pick your week, grab the pack, then join the GroupMe so you get the addresses.</p>
         <div class="cta-row">
-          <a class="btn btn-sun btn-lg" href="${EB}?aff=${aff}_final">Get Tickets · packs from $${PACK_MIN}</a>
+          <a class="btn btn-sun btn-lg" href="${POSH}?t=${aff}_final">Get Tickets · packs from $${PACK_MIN}</a>
           <a class="btn btn-aqua btn-lg" href="${GM}">Join the GroupMe</a>
         </div>
         ${planLinks(GUIDE)}
@@ -675,26 +679,26 @@ for (const dir of ['schools', 'week-1', 'week-2', 'week-3', GUIDE.replace(/\//g,
   const p = path.join(ROOT, dir); if (existsSync(p)) rmSync(p, { recursive: true });
 }
 for (const [u, html] of Object.entries(out)) {
-  const dir = path.join(ROOT, u); mkdirSync(dir, { recursive: true }); writeFileSync(path.join(dir, 'index.html'), html);
+  const dir = path.join(ROOT, u); mkdirSync(dir, { recursive: true }); W(path.join(dir, 'index.html'), html);
 }
-const pub = { eventbrite: EB, weeks: Object.fromEntries(Object.entries(D.weeks).map(([k, w]) => [k, { label: w.label, nightsShort: w.nightsShort, pack: w.pack }])),
+const pub = { eventbrite: EB, posh: POSH, weeks: Object.fromEntries(Object.entries(D.weeks).map(([k, w]) => [k, { label: w.label, nightsShort: w.nightsShort, pack: w.pack }])),
   schools: S.map(s => ({ n: s.name, k: s.short, s: s.slug, w: s.week, a: s.aka })) };
-writeFileSync(path.join(ROOT, 'schools', 'schools.json'), JSON.stringify(pub));
+W(path.join(ROOT, 'schools', 'schools.json'), JSON.stringify(pub));
 const homePath = path.join(ROOT, 'index.html');
-writeFileSync(homePath, homeRegions(readFileSync(homePath, 'utf8')));
+W(homePath, homeRegions(readFileSync(homePath, 'utf8')));
 
 // ---------- llms.txt: plain-text summary for AI assistants, built from the same checked data ----------
 const wkLine = w => { const W = D.weeks[w]; return `- Week ${w}: ${W.label}, 2027. Parties ${W.nights}. Week ${w} Party Pack $${W.pack} before fees (about $${W.separately} bought separately); singles $${W.singlesFrom}–$${W.singlesTo}. ${W.note}`; };
 const llms = `# Houston Spring Break 2027
 
-> Houston Spring Break 2027 is an independent series of college parties in Houston, Texas, March 10–28, 2027, run as three weeks with party nights Thursday to Sunday of each week. Tickets and Party Packs are sold on Eventbrite. It is not affiliated with or endorsed by any college or university.
+> Houston Spring Break 2027 is an independent series of college parties in Houston, Texas, March 10–28, 2027, run as three weeks with party nights Thursday to Sunday of each week. Tickets and Party Packs are sold on Posh. It is not affiliated with or endorsed by any college or university.
 
 ## Key facts
 ${WEEKS.map(wkLine).join('\n')}
-- What a Party Pack is: one ticket for every event in one week. The same nights run every week: ${D.weeks['1'].days.map(([day, items]) => `${day.split(',')[0]}: ${listAnd([...items].sort((a, b) => b[1] - a[1]).map(([n, adult]) => n + (adult ? ' (21+)' : '')))}`).join('; ')}. Prices are before Eventbrite fees.
+- What a Party Pack is: one ticket for every event in one week. The same nights run every week: ${D.weeks['1'].days.map(([day, items]) => `${day.split(',')[0]}: ${listAnd([...items].sort((a, b) => b[1] - a[1]).map(([n, adult]) => n + (adult ? ' (21+)' : '')))}`).join('; ')}. Prices are before Posh fees.
 - Ages: 21+ events are the ${listAnd(ADULT_NAMES)}, every week, with a valid government ID. Everything else is 18+.
 - Where: Houston, TX. Venue addresses are announced the week of each event and sent to ticket holders and the official GroupMe.
-- Refunds: available up to ${REFUND_DAYS} days before the event, under the refund policy on the Eventbrite listing.
+- Refunds: available up to ${REFUND_DAYS} days before the event; ask through your Posh order.
 - Schools: the official 2027 School List puts 200+ schools on the week that matches their spring break. ${HBCU_N} HBCUs and ${TX_N} Texas schools on the list have their own page here.
 
 ## Pages
@@ -705,12 +709,13 @@ ${WEEKS.map(w => `- [Week ${w}](${SITE}/week-${w}/): ${D.weeks[w].label} lineup,
 - [All links](${SITE}/links/)
 
 ## Official links
-- Tickets and Party Packs (Eventbrite): ${EB}
+- Tickets and Party Packs (Posh): ${POSH}
+- Also listed on Eventbrite: ${EB}
 - Free RSVP (Posh): ${POSH}
 - Official GroupMe: ${GM}
 - Instagram: ${P.instagram}
 `;
-writeFileSync(path.join(ROOT, 'llms.txt'), llms);
+W(path.join(ROOT, 'llms.txt'), llms);
 
 // ---------- sitemap with real lastmod (content hash; the date moves only when a page's HTML changes) ----------
 const LM_PATH = path.join(ROOT, '_src/lastmod.json');
@@ -721,11 +726,11 @@ for (const [u] of urls) {
   const h = createHash('sha1').update(readFileSync(fileOf(u))).digest('hex').slice(0, 16);
   if (!LM[u] || LM[u].h !== h) LM[u] = { h, d: TODAY };
 }
-writeFileSync(LM_PATH, JSON.stringify(Object.fromEntries(Object.entries(LM).sort()), null, 1) + '\n');
+W(LM_PATH, JSON.stringify(Object.fromEntries(Object.entries(LM).sort()), null, 1) + '\n');
 const img = ['school-list-2027', 'school-list-week-1', 'school-list-week-2', 'school-list-week-3'].map(n => `    <image:image><image:loc>${SITE}/img/${n}.jpg</image:loc></image:image>`).join('\n');
 const wimg = w => `    <image:image><image:loc>${SITE}/img/school-list-week-${w}.jpg</image:loc></image:image>\n`;
 const u = (loc, pri, extra = '') => `  <url>\n    <loc>${SITE}${loc}</loc>\n    <lastmod>${LM[loc].d}</lastmod>\n    <priority>${pri}</priority>\n${extra}  </url>`;
-writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+W(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls.map(([l, p]) => u(l, p, l === '/' ? img + '\n' : /^\/week-\d\/$/.test(l) ? wimg(l[6]) : '')).join('\n')}
 </urlset>

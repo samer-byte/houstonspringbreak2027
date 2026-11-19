@@ -74,7 +74,7 @@ for (const f of files) {
     if (!tc) { errs.push(`${rel}: ${n.name}: no Eventbrite ticket named "${o.name}"`); continue; }
     if (tc.date !== n.startDate) errs.push(`${rel}: ${n.name}: date ${n.startDate} vs Eventbrite ${tc.date}`);
     if ((tc.free ? '0' : money(tc.price)) !== o.price) errs.push(`${rel}: ${n.name}: price ${o.price} vs Eventbrite ${tc.free ? 0 : tc.price}`);
-    if (!o.url.includes('?aff=')) errs.push(`${rel}: ${n.name}: offer url has no aff code`);
+    if (!o.url.includes('?t=')) errs.push(`${rel}: ${n.name}: offer url has no tracking tag`);
     if (/T\d\d:/.test(n.startDate)) errs.push(`${rel}: ${n.name}: has a start time Eventbrite does not provide`);
     for (const req of ['name', 'startDate', 'location', 'eventStatus', 'organizer', 'image', 'description']) if (!n[req]) errs.push(`${rel}: ${n.name}: missing ${req}`);
   }

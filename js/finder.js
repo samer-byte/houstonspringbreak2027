@@ -45,7 +45,7 @@
     var w = data.weeks[s.w];
     return '<div class="fr"><p class="fr-n"><a href="/schools/' + s.s + '/">' + esc(s.n) + '</a></p>' +
       '<p class="fr-w"><b>Week ' + s.w + '</b> of the 2027 School List · parties ' + esc(w.nightsShort) + '</p>' +
-      '<div class="fr-cta"><a class="btn btn-sun" href="' + data.eventbrite + '?aff=site_finder_w' + s.w + '">Get the Week ' + s.w + ' Pack · $' + w.pack + '</a>' +
+      '<div class="fr-cta"><a class="btn btn-sun" href="' + data.posh + '?t=site-w' + s.w + '">Get the Week ' + s.w + ' Pack · $' + w.pack + '</a>' +
       '<a class="fr-more" href="/schools/' + s.s + '/">' + esc(s.k) + ' page</a></div></div>';
   }
 
@@ -54,7 +54,7 @@
     return '<ul class="fr-wks">' + Object.keys(data.weeks).sort().map(function (k) {
       var w = data.weeks[k];
       return '<li class="fr"><p class="fr-w"><a class="fr-wl" href="/week-' + k + '/"><b>Week ' + k + '</b> · spring break ' + esc(w.label) + '</a><br>Parties ' + esc(w.nightsShort) + '</p>' +
-        '<a class="btn btn-sun" href="' + data.eventbrite + '?aff=site_finder_miss_w' + k + '">Week ' + k + ' Pack · $' + w.pack + '</a></li>';
+        '<a class="btn btn-sun" href="' + data.posh + '?t=site-w' + k + '">Week ' + k + ' Pack · $' + w.pack + '</a></li>';
     }).join('') + '</ul>';
   }
 
