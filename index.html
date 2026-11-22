@@ -2007,6 +2007,16 @@ html.js .rv.in{opacity:1;transform:none}
 }
 .final-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.32;
   -webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+
+.ladder{margin-top:26px;border:1px solid var(--line,rgba(127,246,255,.16));border-radius:16px;padding:16px 16px 6px;background:rgba(13,21,38,.6);max-width:720px}
+.ladder-h{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ion,#7ff6ff);margin:0 0 8px}
+.ladder table{width:100%;border-collapse:collapse;font-size:15px}
+.ladder th,.ladder td{padding:10px 6px;border-top:1px solid rgba(127,246,255,.12);text-align:right;font-weight:500}
+.ladder thead th{border-top:0;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3b4c8}
+.ladder th[scope=row],.ladder thead th:first-child{text-align:left}
+.ladder small{display:block;font-size:12px;color:#a3b4c8;font-weight:400;margin-top:2px}
+.ladder td{font-family:var(--mono);white-space:nowrap}
+.ladder .bf th,.ladder .bf td{color:#ff9a4a}
 </style>
 </head>
 <body>
@@ -2108,7 +2118,7 @@ html.js .rv.in{opacity:1;transform:none}
   <div class="wrap">
     <p class="eyebrow rv">01 · Tickets</p>
     <h2 id="packs-h" class="rv">Party Packs</h2>
-    <p class="lede rv">One ticket covers every event in your week. Or grab single parties from $20. Prices go up as each week fills.</p>
+    <p class="lede rv">One ticket covers every event in your week. Or grab single parties from $20. Pack prices go up on January 1 and again on February 8.</p>
     <div class="grid-3">
       <article class="card pack c-sun rv">
         <p class="pk-week">Week 1</p><p class="pk-dates">March 8 – 14</p>
@@ -2132,6 +2142,18 @@ html.js .rv.in{opacity:1;transform:none}
         <a class="btn btn-sun" href="https://posh.vip/e/houston-spring-break-2027-2?t=site-w3">Get the Week 3 Pack</a>
         <a class="pk-link" href="#week-3">See the Week 3 lineup</a>
       </article>
+    </div>
+    <div class="ladder rv" role="group" aria-label="Party Pack prices by date">
+      <p class="ladder-h">Party Pack prices by date</p>
+      <table>
+        <thead><tr><th scope="col">Buy by</th><th scope="col">Wk 1</th><th scope="col">Wk 2</th><th scope="col">Wk 3</th></tr></thead>
+        <tbody>
+          <tr class="bf"><th scope="row">Black Friday, Nov 27 – 30 <small>code blackfriday · lowest price of the season</small></th><td>$40</td><td>$75</td><td>$40</td></tr>
+          <tr><th scope="row">Through Dec 31</th><td>$80</td><td>$150</td><td>$80</td></tr>
+          <tr><th scope="row">Jan 1 – Feb 7</th><td>$95</td><td>$165</td><td>$95</td></tr>
+          <tr><th scope="row">Feb 8 until the parties</th><td>$110</td><td>$185</td><td>$110</td></tr>
+        </tbody>
+      </table>
     </div>
     <div class="facts rv">
       <span><b>Booze Boat w/ open bar</b> $80 · 21+</span>
